@@ -25,6 +25,10 @@ export function loginAdmin(username, password){
     window.location.href = "/dashboard.html";
 }
 
+//Logout do Utlizador
+export function logout() {
+    sessionStorage.removeItem("loggedInUser");
+}
 class Admin{
     username = "";
     email = "";
@@ -35,9 +39,4 @@ class Admin{
         this.email = email;
         this.password = password;
     }
-}
-
-//Logout do Utlizador
-export function logout() {
-    sessionStorage.removeItem("loggedInUser");
 }
