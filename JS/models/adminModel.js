@@ -36,3 +36,8 @@ class Admin{
         this.password = password;
     }
 }
+
+//Logout do Utlizador
+export function logout() {
+    sessionStorage.removeItem("loggedInUser");
+}
