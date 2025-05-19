@@ -14,7 +14,6 @@ export function addAluno(username, password, telefone, idade, email, morada) {
 
 }
 
-
 // Login do Utlizador
 export function login(username, password) {
     const user = users.find(
