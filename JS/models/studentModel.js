@@ -9,7 +9,7 @@ export function addAluno(username, password, telefone, idade, email, morada) {
     if(users.some((user) => user.username === username)){
         throw Error(`User with username ${username} already exists`);
     }else{
-    users.push(new aluno(username, password, telefone, idade, email, morada));
+    users.push(new Aluno(username, password, telefone, idade, email, morada));
     localStorage.setItem("users", JSON.stringify(users));}
 
 }
