@@ -34,11 +34,11 @@ export function loginExplicador(username, password) {
 
 
 // Logout do Explicador
-export function logoutexplicador() {
+export function logoutExplicador() {
    sessionStorage.removeItem("loggedTutor");
 }
 
-// VERIFICA EXISTÃŠNCIA DE ALGUÃ‰M AUTENTICADO
+// VERIFICA EXISTENCIA DE ALGUEM AUTENTICADO
 export function isTutorLoggedin() {
    return sessionStorage.getItem("loggedTutor") ? true : false;
 }
