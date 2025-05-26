@@ -50,6 +50,7 @@ class Aluno {
     idade = "";
     email = "";
     morada = "";
+    pontos = 0;
 
     constructor(username, password, telefone, idade, email, morada) {
         this.username = username;
@@ -58,6 +59,7 @@ class Aluno {
         this.idade = idade;
         this.email = email;
         this.morada = morada;
+        this.pontos = 0;
     }
 }
 

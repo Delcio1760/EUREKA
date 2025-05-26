@@ -58,6 +58,7 @@ class Explicador{
    morada = "";
    modalidade = "";
    preco = "";
+   estrelas = 0;
 
    constructor(username,email,password,idade,disciplinas,morada,modalidade,preco){
        this.username = username;
@@ -68,6 +69,7 @@ class Explicador{
        this.morada = morada;
        this.modalidade = modalidade;
        this.preco = preco;
+         this.estrelas = 0;
    }
 
   
