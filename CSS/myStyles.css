@@ -1,0 +1,11 @@
+header {
+display: flex;
+width: 1440px;
+height: 154px;
+padding: 41px 90px;
+justify-content: space-between;
+align-items: center;
+flex-shrink: 0;
+background: #123142;
+ 
+}
