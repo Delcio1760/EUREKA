@@ -54,22 +54,24 @@ class Explicador{
    email = "";
    password = "";
    idade = "";
-   disciplinas = "";
+   disciplinas = [];   // disciplinas que leciona
    morada = "";
-   modalidade = "";
+   modalidades = []; // presencial ou online
    preco = "";
    estrelas = 0;
+   disponibilidade = [];  // disponibilidade do explicador (dias e horas)
 
-   constructor(username,email,password,idade,disciplinas,morada,modalidade,preco){
+   constructor(username,email,password,idade,disciplinas,morada,modalidades,preco,estrelas,disponibilidade) {
        this.username = username;
        this.email = email;
        this.password = password;
        this.idade = idade;
        this.disciplinas = disciplinas;
        this.morada = morada;
-       this.modalidade = modalidade;
-       this.preco = preco;
-         this.estrelas = 0;
+       this.modalidades = modalidades;
+       this.preco = Number(preco);
+         this.estrelas = 0;                     // por defeito, o explicador começa com 0 estrelas
+         this.disponibilidade = []; 
    }
 
   

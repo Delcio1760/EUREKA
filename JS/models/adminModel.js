@@ -1,5 +1,7 @@
 const LS_KEY = "admin";
+const LS_Disciplina = "disciplina";
 let admins = [];
+let disciplinas = [];
 
 
 export function init(){
@@ -42,4 +44,38 @@ class Admin{
        this.email = email;
        this.password = password;
    }
+}
+
+// Gestão de Disciplinas
+export function initDisciplinas() {
+   disciplinas = JSON.parse(localStorage.getItem(LS_Disciplina)) || [];
+}
+
+function guardarDisciplinas(){                                           // Função para guardar disciplinas na LocalStorage
+   localStorage.setItem(LS_Disciplina, JSON.stringify(disciplinas));
+}
+
+export function addDisciplina(nome, nivelEnsino) {                      // Função para adicionar disciplina
+   if(disciplinas.some((disciplina) => disciplina.nome === nome)){
+       throw Error(`Disciplina com nome ${nome} já existe`);           
+   }else{
+       disciplinas.push({ nome, nivelEnsino });
+       guardarDisciplinas();
+   }
+}
+
+
+export function removeDisciplina(index){                           // Função para remover disciplina
+   
+   if(index < 0 || index >= disciplinas.length){
+      throw Error("Índice inválido");
+   } else {
+      disciplinas.splice(index, 1);
+      guardarDisciplinas();
+   }
+
+}
+
+export function listarDisciplinas() {                               // Função para listar disciplinas
+   return disciplinas;
 }

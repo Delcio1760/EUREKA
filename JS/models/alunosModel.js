@@ -51,6 +51,8 @@ class Aluno {
     email = "";
     morada = "";
     pontos = 0;
+    favoritos = []; // Lista de favoritos do aluno
+    filtros = {};
 
     constructor(username, password, telefone, idade, email, morada) {
         this.username = username;
@@ -59,7 +61,17 @@ class Aluno {
         this.idade = idade;
         this.email = email;
         this.morada = morada;
-        this.pontos = 0;
+        this.pontos = 0;                
+        this.favoritos = [];
+        
+        this.filtros = {                 // Filtros para pesquisa de explicadores
+            disciplinas: "",
+            modalidades: [],
+            disponibilidade: [],
+            precoMax: 0,
+            localidade: "",
+            
+        };
     }
 }
 
