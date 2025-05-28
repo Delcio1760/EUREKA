@@ -1,0 +1,10 @@
+:root {
+  --variable-collection-color: rgba(231, 37, 37, 1);
+  --variable-collection-color-2: rgba(3, 253, 70, 1);
+  --variable-collection-wrong: none;
+  --variable-collection-right: initial;
+  --variable-collection-estado-da-resposta: none;
+}
+
+
+

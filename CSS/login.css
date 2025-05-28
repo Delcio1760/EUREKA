@@ -1,0 +1,32 @@
+.login-page {
+background-color: rgba(255, 255, 255, 1.0); display: flex; flex-direction: row; justify-content: center;
+width: 100%;}
+.login-page •overlap-group-wrapper { background-color: rgba(255, 255, 255, 1.0); background: linear-gradient(
+90deg,
+rgba(25, 68, 92, 1) 0%, rgba(59, 101, 122, 1) 53%, rgba(20, 32, 38, 1) 100%
+);
+width: 1440px; height: 1024px;
+}
+.login-page •overlap-group {position: relative;
+width: 1011px; height: 540px; top: 225px; left: 154px;}
+.login-page .rectangle{
+position: absolute;
+width: 600px; height: 411px;
+top: 46px; left: 411px;}
+
+.login-page .frame { position: absolute;
+width: 386px; height: 336px; top: 71px; left: 518px;
+}
+.login-page div{
+position: absolute;
+width: 439px; height: 457px;
+top: 0; left: 8px;
+background-color: #d9d9d9; border-radius: 50px;}
+.login-page .group {
+position: absolute;
+width: 468px; height: 469px;
+top: 0; left: 0;}
+.login-page .frame-login-page { position: absolute;
+width: 386px; height: 326px; top: 214px; left: 61px;}
+*{
+    background:linear-gradient(90deg, #19445C 0.06%, #3B657A 53%, #142026 99.94%);}
