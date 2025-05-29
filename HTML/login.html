@@ -1,23 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../CSS/globals.css" />
-    <link rel="stylesheet" href="../CSS/styleguide.css" />
-    <link rel="stylesheet" href="../CSS/login.css" />
-  </head>
-  <body>
-    <div class="login-page">
-      <div class="overlap-group-wrapper">
-        <div class="overlap-group">
-          <img class="rectangle" src="../img/" />
-          <img class="frame" src="img/frame-15.png" />
-          <div class="div">X</div>
-          <img class="group" src="img/group-75.png" />
-          <img class="frame-login-page" src="img/frame-login-page.png" />
-        </div>
-      </div>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Login Page</title>
+ <link rel="stylesheet" href="../CSS/login.css">
+ 
+</head>
+<body>
+  <div class="glass-card">
+    <div class="logo-section">
+      <img
+        src="../img/Group 128.png"
+        alt="Logo"
+        width="160"
+        height="160"
+      />
     </div>
-  </body>
+    <div class="form-section">
+      <h2>Login</h2>
+      <form>
+        <div class="input-group">
+          <input type="email" placeholder="Email" required />
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="input-group">
+          <input type="password" placeholder="Password" required />
+          <i class="fas fa-lock"></i>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <a href="registro.html" class="register-link">Cadastro</a>
+    </div>
+  </div>
+</body>
 </html>

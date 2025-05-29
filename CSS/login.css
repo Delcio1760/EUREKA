@@ -1,32 +1,136 @@
-.login-page {
-background-color: rgba(255, 255, 255, 1.0); display: flex; flex-direction: row; justify-content: center;
-width: 100%;}
-.login-page •overlap-group-wrapper { background-color: rgba(255, 255, 255, 1.0); background: linear-gradient(
-90deg,
-rgba(25, 68, 92, 1) 0%, rgba(59, 101, 122, 1) 53%, rgba(20, 32, 38, 1) 100%
-);
-width: 1440px; height: 1024px;
-}
-.login-page •overlap-group {position: relative;
-width: 1011px; height: 540px; top: 225px; left: 154px;}
-.login-page .rectangle{
-position: absolute;
-width: 600px; height: 411px;
-top: 46px; left: 411px;}
 
-.login-page .frame { position: absolute;
-width: 386px; height: 336px; top: 71px; left: 518px;
-}
-.login-page div{
-position: absolute;
-width: 439px; height: 457px;
-top: 0; left: 8px;
-background-color: #d9d9d9; border-radius: 50px;}
-.login-page .group {
-position: absolute;
-width: 468px; height: 469px;
-top: 0; left: 0;}
-.login-page .frame-login-page { position: absolute;
-width: 386px; height: 326px; top: 214px; left: 61px;}
-*{
-    background:linear-gradient(90deg, #19445C 0.06%, #3B657A 53%, #142026 99.94%);}
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(90deg, #2b4f69 0%, #0a1218 100%);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .glass-card {
+      display: flex;
+    max-width: 48rem;
+    width: 100%;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    background-color: #234054;
+    }
+    .logo-section {
+      background: #15303f;
+      padding: 3rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-top-left-radius: 1.5rem;
+      border-bottom-left-radius: 1.5rem;
+
+    }
+    .logo-section img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+    }
+    .form-section {
+      flex: 1;
+      padding: 3rem 3rem 3rem 2.5rem;
+      color: #e0f2f1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+    }
+    .form-section h2 {
+      font-weight: 600;
+      font-size: 2.25rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    }
+    form {
+      width: 100%;
+    }
+    .input-group {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid #4fd1c5;
+      padding: 0.75rem 2.5rem 0.75rem 0.5rem;
+      font-size: 1rem;
+      color: #e0f2f1;
+      transition: border-color 0.3s ease;
+    }
+    input[type="email"]::placeholder,
+    input[type="password"]::placeholder {
+      color: #a0c4c3;
+    }
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #81e6d9;
+      box-shadow: 0 2px 8px #81e6d9aa;
+    }
+    .input-group i {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #81e6d9;
+      font-size: 1.25rem;
+      pointer-events: none;
+      filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.3));
+    }
+    button[type="submit"] {
+      width: 100%;
+      background: linear-gradient(180deg, #4fd1c5 0%, #2c7a7b 100%);
+      border: none;
+      border-radius: 9999px;
+      padding: 0.85rem 0;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(47, 128, 128, 0.6);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background: linear-gradient(180deg, #38b2ac 0%, #285e61 100%);
+      box-shadow: 0 8px 20px rgba(38, 97, 97, 0.8);
+    }
+    .register-link {
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: #81e6d9;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: color 0.3s ease;
+    }
+    .register-link:hover {
+      color: #b2f5ea;
+    }
+    @media (max-width: 640px) {
+      .glass-card {
+        flex-direction: column;
+        border-radius: 1.25rem;
+      }
+      .logo-section {
+        border-radius: 1.25rem 1.25rem 0 0;
+        padding: 2rem 0;
+      }
+      .form-section {
+        padding: 2rem 2rem 3rem 2rem;
+      }
+      .logo-section img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  
