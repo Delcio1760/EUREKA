@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Page</title>
+    <link rel="stylesheet" href="/EUREKA/CSS/loginPage.css">
+</head>
+<body>
+  <div class="main-container" id="container">
+    <div class="form-wrapper">
+      <div class="caixa-registro" id="caixa-registro">
+        <h2>Registro</h2>
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Username" required>
+  
+        <label for="email-registro">Email</label>
+        <input type="email" id="email-registro" placeholder="Email" required>
+  
+        <label for="password-registro">Password</label>
+        <input type="password" id="password-registro" placeholder="Password" required>
+  
+        <div class="radio-box">
+          <label><input type="radio" name="tipo" value="aluno"> Aluno</label>
+          <label><input type="radio" name="tipo" value="explicador"> Explicador</label>
+        </div>
+  
+        <button>Registrar</button>
+        <p class="switch" onclick="toggleForm()">Login</p>
+      </div>
+  
+      <div class="icon-box">
+        <img src="/EUREKA/img/Icone_logo.png" alt="Logo Icone">
+      </div>
+  
+      <div class="login-box" id="caixa-login">
+        <h2>Login</h2>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Email" required>
+  
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Password" required>
+  
+        <button>Login</button>
+        <p class="switch" onclick="toggleForm()">Registro</p>
+      </div>
+    </div>
+  </div>
+  <script src="/EUREKA/JS/views/registro_loginView.js"></script>  
+    
+</body>
+</html>
