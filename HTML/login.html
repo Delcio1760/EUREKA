@@ -1,52 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login-Page</title>
-    <link rel="stylesheet" href="/EUREKA/CSS/loginPage.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina Login</title>
+  <link rel="stylesheet" href="/EUREKA/CSS/loginPage.css">
 </head>
 <body>
-  <div class="main-container" id="container">
-    <div class="form-wrapper">
-      <div class="caixa-registro" id="caixa-registro">
-        <h2>Registro</h2>
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Username" required>
-  
-        <label for="email-registro">Email</label>
-        <input type="email" id="email-registro" placeholder="Email" required>
-  
-        <label for="password-registro">Password</label>
-        <input type="password" id="password-registro" placeholder="Password" required>
-  
-        <div class="radio-box">
-          <label><input type="radio" name="tipo" value="aluno"> Aluno</label>
-          <label><input type="radio" name="tipo" value="explicador"> Explicador</label>
-        </div>
-  
-        <button>Registrar</button>
-        <p class="switch" onclick="toggleForm()">Login</p>
-      </div>
-  
-      <div class="icon-box">
-        <img src="/EUREKA/img/Icone_logo.png" alt="Logo Icone">
-      </div>
-  
-      <div class="login-box" id="caixa-login">
+  <div class="wrapper">
+    <div class="form-wrapper sign-in">
+      <form action="">
         <h2>Login</h2>
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Email" required>
-  
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Password" required>
-  
-        <button>Login</button>
-        <p class="switch" onclick="toggleForm()">Registro</p>
-      </div>
+        <div class="input-group">
+          <input type="text" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+          <input type="password" placeholder="Password" required>
+        </div>
+        <button type="submit">Login</button>
+        <div class="signUp-link">
+          <p>Não tens conta?<a href="#" class="signUpBtn-link">Registro</a></p>
+        </div>
+      </form>
+    </div>
+    <div class="form-wrapper sign-up">
+      <form action="">
+        
+        <h2>Registro</h2>
+        <div class="input-group">
+          <input type="text" required placeholder="Username">
+        </div>
+        <div class="input-group">
+          <input type="email" required placeholder="EMAIL">
+        </div>
+        <div class="input-group">
+          <input type="password" required placeholder="Password">
+        </div>
+        <button type="submit">Registrar</button>
+        <div class="signUp-link">
+          <p>Já tens conta?<a href="#" class="signInBtn-link">Login</a></p>
+        </div>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="role" value="aluno" required>
+            <span>Aluno</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="role" value="explicador" required>
+            <span>Explicador</span>
+          </label>
+        </div>
+      </form>
+
     </div>
   </div>
-  <script src="/EUREKA/JS/views/registro_loginView.js"></script>  
-    
+  <script src="/EUREKA/JS/loginPage.js"></script>
+  
 </body>
 </html>
