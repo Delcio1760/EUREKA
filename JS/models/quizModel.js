@@ -36,7 +36,7 @@ export function editQuizz(tituloAntigo, tituloNovo, Novadisciplina, Novaspergunt
     throw Error(`Quizz com título ${tituloAntigo} não encontrado`);
   }
 
-  quizzes[quizzIndex].titulo = tituloNovo;
+    quizzes[quizzIndex].titulo = tituloNovo;
     quizzes[quizzIndex].disciplina = Novadisciplina;
     quizzes[quizzIndex].perguntas = Novasperguntas;
     localStorage.setItem(LS_QUIZZES, JSON.stringify(quizzes));
@@ -47,11 +47,21 @@ export function editQuizz(tituloAntigo, tituloNovo, Novadisciplina, Novaspergunt
 class Quizz {
     titulo = "";
     disciplina = "";
-    perguntas = [];
+    pergunta = "";
+    resposta1 = "";
+    resposta2 = "";
+    resposta3 = "";
+    resposta4 = "";
+    respostaCerta = "";
 
-    constructor(titulo, disciplina, perguntas) {
+    constructor(titulo, disciplina, pergunta, resposta1, resposta2, resposta3, resposta4, respostaCerta) {
         this.titulo = titulo;
         this.disciplina = disciplina;
-        this.perguntas = perguntas;
+        this.pergunta = pergunta;
+        this.resposta1 = resposta1;
+        this.resposta2 = resposta2;
+        this.resposta3 = resposta3;
+        this.resposta4 = resposta4;
+        this.respostaCerta = respostaCerta;
     }
 }
