@@ -49,30 +49,30 @@ export function getTutorLogged(){
    return JSON.parse(sessionStorage.getItem("loggedTutor"));
 }
 
-class Explicador{
+export class Explicador{
    username = "" ;
    email = "";
    password = "";
-   idade = "";
+   dataNascimento = "";
    disciplinas = [];   // disciplinas que leciona
    morada = "";
    modalidades = []; // presencial ou online
    preco = "";
    estrelas = 0;
    disponibilidade = [];  // disponibilidade do explicador (dias e horas)
+   fotoPerfil = ""; 
 
-   constructor(username,email,password,idade,disciplinas,morada,modalidades,preco,estrelas,disponibilidade) {
+   constructor(username,email,password,dataNascimento,disciplinas,morada,modalidades,preco,estrelas,disponibilidade,fotoPerfil) {
        this.username = username;
        this.email = email;
        this.password = password;
-       this.idade = idade;
+       this.dataNascimento = dataNascimento;
        this.disciplinas = disciplinas;
        this.morada = morada;
        this.modalidades = modalidades;
        this.preco = Number(preco);
          this.estrelas = 0;                     // por defeito, o explicador começa com 0 estrelas
-         this.disponibilidade = []; 
-   }
-
-  
+         this.disponibilidade = [];
+         this.fotoPerfil = fotoPerfil || "";  
+   } 
 }
