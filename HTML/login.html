@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Pagina Login</title>
+ <link rel="stylesheet" href="/CSS/loginPage.css">
+</head>
+<body>
+ <div class="wrapper">
+   <div class="form-wrapper sign-in">
+     <form action="">
+       <h2>Login</h2>
+       <div class="input-group">
+         <input id="Username-input" type="text" placeholder="Username" required>
+       </div>
+       <div class="input-group">
+         <input id="Password-input" type="password" placeholder="Password" required>
+       </div>
+       <button id="login-btn" type="submit">Login</button>
+       <div class="signUp-link">
+         <p>Não tens conta?<a href="#" class="signUpBtn-link">Registro</a></p>
+       </div>
+     </form>
+   </div>
+   <div class="form-wrapper sign-up">
+     <form action="">
+      
+       <h2>Registro</h2>
+       <div class="input-group">
+         <input id="Username-Registro" type="text" required placeholder="Username">
+       </div>
+       <div class="input-group">
+         <input id="Email-Registro" type="email" required placeholder="EMAIL">
+       </div>
+       <div class="input-group">
+         <input id="Password-registro" type="password" required placeholder="Password">
+       </div>
+       <button id="registro-btn" type="submit">Registrar</button>
+       <div class="signUp-link">
+         <p>JÃ¡ tens conta?<a href="#" class="signInBtn-link">Login</a></p>
+       </div>
+       <div class="radio-group">
+         <label class="radio-option">
+           <input id="aluno-radiobtn" type="radio" name="role" value="aluno" required>
+           <span>Aluno</span>
+         </label>
+         <label class="radio-option">
+           <input  id="explicador-radiobtn" type="radio" name="role" value="explicador" required>
+           <span>Explicador</span>
+         </label>
+       </div>
+     </form>
+
+   </div>
+ </div>
+ <script src="/JS/views/loginView.js"type="module" defer></script>
+ </body>
+</html> 
