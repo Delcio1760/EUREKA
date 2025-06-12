@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #0c2d48;
+    color: white;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #051c2c;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+  }
+
+  nav button {
+    background-color: #1e4e7d;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .leaderboard-header,
+  .leaderboard-row {
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr 2fr;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    align-items: center;
+  }
+
+  .leaderboard-header {
+    font-weight: bold;
+    border-bottom: 1px solid #1a4c6b;
+    background-color: transparent;
+  }
+
+  .leaderboard-row {
+    background: linear-gradient(90deg, #1c4566, #1a3c58);
+  }
+
+  .player {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .player img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .badge {
+    text-align: center;
+  }
+
+  .logo {
+    width: 250px;
+    height: 100px;  
+  }
+
+  .info{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .pontos{
+   margin-left: 240px;
+  }
+  
+  

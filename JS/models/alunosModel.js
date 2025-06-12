@@ -54,16 +54,16 @@ export class Aluno {
    favoritos = []; // Lista de favoritos do aluno
    filtros = {};
    fotoPerfil = "";
-   constructor(username, password, telefone, dataNascimento, email, morada,filtros,favoritos, fotoPerfil) {
+   constructor(username, password, telefone, dataNascimento, email, morada,filtros,favoritos, fotoPerfil,pontos) {
        this.username = username;
        this.password = password;
        this.telefone = telefone;
        this.dataNascimento = dataNascimento;
        this.email = email;
        this.morada = morada;
-       this.pontos = 0;               
-       this.favoritos = [];
-       this.filtros = {                 // Filtros para pesquisa de explicadores
+       this.pontos = pontos || 0; // Pontos do aluno inicia com 0           
+       this.favoritos = favoritos|| [];
+       this.filtros = filtros || {                 // Filtros para pesquisa de explicadores
            disciplinas: "",
            modalidades: [],
            disponibilidade: [],
