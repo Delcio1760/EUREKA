@@ -1,4 +1,4 @@
-const LS_QUIZZES = "quizz";
+const LS_QUIZZES = "quizzes";
 let quizzes = [];
  
 export function initQuizzes() {
@@ -17,6 +17,7 @@ export function addQuizz(titulo, disciplina, perguntas){
     } else {
         quizzes.push(novoQuizz);
         localStorage.setItem(LS_QUIZZES, JSON.stringify(quizzes));
+        alert(`Quizz ${titulo} adicionado com sucesso!`);
     }
 
 }
@@ -44,24 +45,13 @@ export function editQuizz(tituloAntigo, tituloNovo, Novadisciplina, Novaspergunt
 
 
 // Classe de Quizz
-class Quizz {
+export class Quizz {
     titulo = "";
     disciplina = "";
-    pergunta = "";
-    resposta1 = "";
-    resposta2 = "";
-    resposta3 = "";
-    resposta4 = "";
-    respostaCerta = "";
-
-    constructor(titulo, disciplina, pergunta, resposta1, resposta2, resposta3, resposta4, respostaCerta) {
+    perguntas = []; // array de objetos { pergunta, respostas: [], respostaCerta }
+    constructor(titulo, disciplina, perguntas) {
         this.titulo = titulo;
         this.disciplina = disciplina;
-        this.pergunta = pergunta;
-        this.resposta1 = resposta1;
-        this.resposta2 = resposta2;
-        this.resposta3 = resposta3;
-        this.resposta4 = resposta4;
-        this.respostaCerta = respostaCerta;
+        this.perguntas = perguntas;
     }
 }

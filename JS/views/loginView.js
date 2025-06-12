@@ -59,11 +59,11 @@ function register(){
    const alunos = JSON.parse(localStorage.getItem("users")) || [];
    const explicadores = JSON.parse(localStorage.getItem("explicador")) || [];
   
-   const existe = alunos.some(a => a.username === username || a.email === email || password === a.password) ||
-   explicadores.some(e => e.username === username || email === e.email || password === e.password);
+   const existe = alunos.some(a => a.username === username || a.email === email) ||
+   explicadores.some(e => e.username === username || email === e.email);
 
    if(existe){
-       alert("Erro! Username, email ou password já existe.");
+       alert("Erro! Este username, ou email já existe.");
        return;
    }
 
