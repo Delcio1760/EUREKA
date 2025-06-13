@@ -1,57 +1,64 @@
 const LS_QUIZZES = "quizzes";
-let quizzes = [];
- 
+export let quizzes = [];
+
+// Inicializa os quizzes do localStorage
 export function initQuizzes() {
-    quizzes = JSON.parse(localStorage.getItem(LS_QUIZZES)) || [];
- }
+  const stored = JSON.parse(localStorage.getItem(LS_QUIZZES)) || [];
+  quizzes.splice(0, quizzes.length, ...stored.map(q => new Quizz(q.titulo, q.disciplina, q.perguntas)));
+}
 
+// Retorna a lista de quizzes
 export function listaQuizzes() {
-    return quizzes;
+  return quizzes;
 }
 
-// Adicionar novo quizz
-export function addQuizz(titulo, disciplina, perguntas){
-    const novoQuizz = new Quizz(titulo, disciplina, perguntas);
-    if(quizzes.some((quizz) => quizz.titulo === titulo)){
-        throw Error(`Quizz com título ${titulo} já existe`);
-    } else {
-        quizzes.push(novoQuizz);
-        localStorage.setItem(LS_QUIZZES, JSON.stringify(quizzes));
-        alert(`Quizz ${titulo} adicionado com sucesso!`);
-    }
+// Adiciona um novo quiz
+export function addQuizz(titulo, disciplina, perguntas) {
+  let quizzesSalvos = JSON.parse(localStorage.getItem("quizzes")) || [];
 
-}
+  // Cria o novo quiz
+  const novoQuiz = new Quizz(titulo, disciplina, perguntas);
 
-// Função para remover um quizz
-export function removeQuizz(titulo){
-    quizzes = quizzes.filter((quizz) => quizz.titulo !== titulo);
-    localStorage.setItem(LS_QUIZZES, JSON.stringify(quizzes));
+  // Adiciona à lista e salva novamente
+  quizzesSalvos.push(novoQuiz);
+  localStorage.setItem("quizzes", JSON.stringify(quizzesSalvos));
 }
 
 
-// Função para editar um quizz
-export function editQuizz(tituloAntigo, tituloNovo, Novadisciplina, Novasperguntas) {
+// Remove um quiz pelo título
+export function removeQuizz(titulo) {
+  const index = quizzes.findIndex(q => q.titulo === titulo);
+  if (index === -1) {
+    throw Error(`Quizz com título ${titulo} não encontrado`);
+  }
+
+  quizzes.splice(index, 1);
+  localStorage.setItem(LS_QUIZZES, JSON.stringify(quizzes));
+}
+
+// Edita um quiz existente
+export function editQuizz(tituloAntigo, tituloNovo, novaDisciplina, novasPerguntas) {
   const quizzIndex = quizzes.findIndex(quizz => quizz.titulo === tituloAntigo);
 
   if (quizzIndex === -1) {
     throw Error(`Quizz com título ${tituloAntigo} não encontrado`);
   }
 
-    quizzes[quizzIndex].titulo = tituloNovo;
-    quizzes[quizzIndex].disciplina = Novadisciplina;
-    quizzes[quizzIndex].perguntas = Novasperguntas;
-    localStorage.setItem(LS_QUIZZES, JSON.stringify(quizzes));
+  quizzes[quizzIndex].titulo = tituloNovo;
+  quizzes[quizzIndex].disciplina = novaDisciplina;
+  quizzes[quizzIndex].perguntas = novasPerguntas;
+  localStorage.setItem(LS_QUIZZES, JSON.stringify(quizzes));
 }
 
-
-// Classe de Quizz
+// Classe Quizz
 export class Quizz {
-    titulo = "";
-    disciplina = "";
-    perguntas = []; // array de objetos { pergunta, respostas: [], respostaCerta }
-    constructor(titulo, disciplina, perguntas) {
-        this.titulo = titulo;
-        this.disciplina = disciplina;
-        this.perguntas = perguntas;
-    }
+  titulo = "";
+  disciplina = "";
+  perguntas = []; // array de objetos { pergunta, respostas: [], respostaCerta }
+
+  constructor(titulo, disciplina, perguntas) {
+    this.titulo = titulo;
+    this.disciplina = disciplina;
+    this.perguntas = perguntas;
+  }
 }

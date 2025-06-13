@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <title>Quizzes</title>
+  <link rel="stylesheet" href="/CSS/quiz.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+  
+      <!-- Logo + Navegação à esquerda -->
+      <div class="nav-left">
+        <div class="logo">
+          <img src="/img/Group 49.png" alt="logo do site">
+        </div>
+        <nav>
+          <a href="/EUREKA/index.html">Home</a>
+          <a href="/EUREKA/HTML/sobre_nos.html">Sobre nós</a>
+          <a href="/EUREKA/HTML/disciplinas.html">Disciplinas</a>
+          <a href="/EUREKA/HTML/quiz.html">Quizz</a>
+        </nav>
+      </div>
+  
+      <!-- "Meu Perfil" à direita -->
+      <div class="perfil-link">
+        <a href="#">Meu Perfil</a>
+      </div>
+  
+    </div>
+  </header>
+  <h1>Prove os teus conhecimentos aqui</h1>
+  <div id="quizContainer" class="card-container"></div>
+
+  <!-- Modal -->
+  <div id="quizModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2 id="modalTitulo"></h2>
+      <div id="modalPerguntas"></div>
+    </div>
+  </div>
+  <script type="module" src="/JS/views/quizView.js"></script>
+  <script type="module" src="/JS/init.js"></script>
+</body>
+</html>

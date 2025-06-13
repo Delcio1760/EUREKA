@@ -1,0 +1,176 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f2a3a;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Esquerda: logo e navegação */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Direita: Meu Perfil */
+.perfil-link {
+  margin-left: auto;
+}
+
+.perfil-link a {
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.logo img {
+  width: 250px;
+  height: auto;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Cabeçalho */
+header {
+  background: #1a3449;
+  padding: 1rem 2rem;
+}
+
+/* Flex container principal */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* "Meu Perfil" à esquerda */
+.perfil-link a {
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Direita: logo + nav */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Espaço entre logo e nav */
+}
+
+/* Logo */
+.logo img {
+  width: 250px;
+  height: auto;
+}
+
+/* Links de navegação */
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+
+/* Título principal */
+h1 {
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+/* Container dos quizzes */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Estilo dos cards */
+.card {
+  width: 200px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.card:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: linear-gradient(90deg, #19445C 0%, #3B657A 53%, #b1c5cf 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80%;
+  overflow-y: auto;
+  color: #fff;
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.hidden {
+  display: none;
+}
