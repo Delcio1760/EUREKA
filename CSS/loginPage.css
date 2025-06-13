@@ -5,6 +5,12 @@
     font-family: 'Poppins',sans-serif;
  
  }
+
+ .main-container{
+   display: flex;
+   gap: 40px;
+   align-items: flex-start;
+ }
  
  body{
     display: flex;
@@ -153,5 +159,31 @@
     accent-color: #ffcc00; /* amarelo destaque */
     width: 16px;
     height: 16px;
+  }
+
+  .explicador-info{
+   opacity: 0;
+   max-height: 0;
+   overflow: hidden;
+   transition: all 0.8s ease;
+  }
+
+  .explicador-info.visivel{
+   opacity: 1;
+   max-height: 600px; 
+  }
+
+  .explicador-box{
+   width: 400px;
+   height: auto;
+   min-height: 550px;
+   overflow: hidden;
+   opacity: 0;
+   transition: max-height 0.6s ease, opacity 0.6s ease;
+  }
+
+  .explicador-box.visivel{
+   opacity: 1;
+   max-height: 1000px; 
   }
   
