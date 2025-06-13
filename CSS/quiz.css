@@ -1,0 +1,80 @@
+body {
+  background-color: #0f1a20;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container centralizado */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 1rem;
+  padding: 2rem;
+}
+
+/* Card estilizado */
+.card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 220px;
+  background-color: #2a3b45;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  background-color: #aac0ca;
+}
+
+.card h3 {
+  color: white; /* Título em branco */
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #d0d0d0;
+  margin: 0;
+  font-size: 0.9rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: linear-gradient(90deg, #19445C 0%, #3B657A 53%, #b1c5cf 100%);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 500px;
+  max-height: 80%;
+  overflow-y: auto;
+  color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 1.5rem;
+}

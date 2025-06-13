@@ -43,21 +43,33 @@ export function getUserLogged(){
     return JSON.parse(sessionStorage.getItem("loggedInUser"));
 }
 
-class Aluno {
+export class Aluno {
     username = "";
     password = "";
     telefone = "";
-    idade = "";
+    dataNascimento = "";
     email = "";
     morada = "";
-
-    constructor(username, password, telefone, idade, email, morada) {
+    pontos = 0;
+    favoritos = []; // Lista de favoritos do aluno
+    filtros = {};
+    fotoPerfil = ""; 
+    constructor(username, password, telefone, dataNascimento, email, morada,filtros,favoritos, fotoPerfil) {
         this.username = username;
         this.password = password;
         this.telefone = telefone;
-        this.idade = idade;
+        this.dataNascimento = dataNascimento;
         this.email = email;
         this.morada = morada;
+        this.pontos = 0;                
+        this.favoritos = [];
+        this.filtros = {                 // Filtros para pesquisa de explicadores
+            disciplinas: "",
+            modalidades: [],
+            disponibilidade: [],
+            precoMax: 0,
+            localidade: "",   
+        };
+        this.fotoPerfil = fotoPerfil || ""; // Foto de perfil do aluno
     }
 }
-

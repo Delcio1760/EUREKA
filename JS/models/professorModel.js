@@ -33,23 +33,23 @@ export function loginExplicador(username, password) {
 }
 
 
-// Logout do Explicador
+//Logout do Explicador
 export function logoutExplicador() {
    sessionStorage.removeItem("loggedTutor");
 }
 
-// VERIFICA EXISTENCIA DE ALGUEM AUTENTICADO
+//VERIFICA EXISTENCIA DE ALGUEM AUTENTICADO
 export function isTutorLoggedin() {
    return sessionStorage.getItem("loggedTutor") ? true : false;
 }
 
 
-// Devolve o explicador logado
+//Devolve o explicador logado
 export function getTutorLogged(){
    return JSON.parse(sessionStorage.getItem("loggedTutor"));
 }
 
-class Explicador{
+export class Explicador{
    username = "" ;
    email = "";
    password = "";
