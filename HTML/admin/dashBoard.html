@@ -4,7 +4,8 @@
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
  <title>Admin-Dasboard</title>
- <link rel="stylesheet" href="/CSS/adminPage.css" />
+ <link rel="stylesheet" href="/CSS/adminPage.css"/>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
  <!-- Sidebar -->
@@ -40,14 +41,16 @@
      </div>
 
      <div class="stats">
-       <h3>Estatísticas Mensais</h3>
-       <div class="stats-placeholder">[Grafico Simulado]</div>
+      <h3>Estatísticas de Utilizadores</h3>
+      <div class="grafico">
+       <canvas id="graficoUtilizadores"></canvas>
      </div>
 
+
      <div class="tasks">
-       <h3>Tarefas</h3>
-       <div class="progress-circle">60%</div>
-     </div>
+      <h3>Explicadores por Disciplina</h3>
+      <canvas id="graficoDisciplinas"></canvas>
+    </div>
 
      <div class="alerts">
        <h3>Alertas</h3>

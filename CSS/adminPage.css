@@ -170,9 +170,25 @@ body {
     cursor: pointer;
     margin-left: 10px;
     }
- 
- 
- 
- 
- 
- 
+
+    #graficoUtilizadores {
+      width: 100%;
+      max-width: 800px;
+      height: 400px;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    #graficoDisciplinas {
+      width: 100%;
+      max-width: 500px;
+      height: 500px;
+      display: block;
+      margin: 0 auto;
+    }
+    
+
+   
+
+    
+    

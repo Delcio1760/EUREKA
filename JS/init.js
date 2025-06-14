@@ -3,6 +3,7 @@ import { Explicador } from "./models/professorModel.js";
 import { Quizz, initQuizzes, addQuizz } from "./models/quizModel.js";
 import { renderCards, mostrarSeccao } from "./views/adminView.js";
 import { renderTableAlunos, renderTableExplicadores } from "./views/adminView.js";
+import { renderGraficoSimples , renderGraficoDisciplinas } from "./views/adminView.js";
 
 console.log("init.js carregado");
 
@@ -102,6 +103,8 @@ renderCards(alunos, explicadores);
 mostrarSeccao("dashboard");
 renderTableAlunos(alunos);
 renderTableExplicadores(explicadores);
+renderGraficoSimples(alunos, explicadores);
+renderGraficoDisciplinas();
 
 
 
