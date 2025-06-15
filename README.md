@@ -74,5 +74,5 @@ Criar uma aplicação web intuitiva e funcional que:
 
 - Délcio Cunha – 40240378  
 - Márcio Tavares – 40240379  
-- Tiago Luz – 40240380  
+- Thiago Luz – 40240380  
 

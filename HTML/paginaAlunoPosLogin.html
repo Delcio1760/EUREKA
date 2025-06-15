@@ -3,17 +3,13 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>Eureka</title>
- <link rel="stylesheet" href="CSS/Style.css">
+ <link rel="stylesheet" href="../CSS/Style.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
  
- <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
 
- 
- 
- 
-  
  </head>
  <body>
   </head>
@@ -26,21 +22,24 @@
        <a href="HTML/disciplinas.html">Disciplinas</a>
         <a href="HTML/quiz.html">Quizz</a>
    </nav>
-   <div class="login"><a href="HTML/login.html">Iniciar sessão</a></div>
+  
+
+<div class="login">
+  <a href="../HTML/profiles/perfilAlunos.html">
+    <i class="fa-solid fa-user"></i> Meu perfil
+  </a>
+</div>
+
 
    
   </header>
   <main>
    <section class="hero">
     <div class="hero-text">
-     <h4>Junte-te a nos</h4>
-     <h1>Seja bem Vindo a nossa Home page <br><br>
-      "O seu próximo professor ideal, a um clique de distância."</h1>
-     <p>Encontre perto de ti o professor ideal</p>
-     <div class="hero-buttons">
-      <a href="HTML/quero_ensinar.html"><button type="button" class="btn-primary">Quero ensinar</button></a>
-      <a href="HTML/quero_aprender.html"><button type="button" class="btn-secondary">Quero Aprender!</button></a>
-     </div>
+     <h4>Estamos felizes em te ver por aqui!</h4>
+     <h1>"O seu próximo professor ideal, a um clique de distância."</h1><br><br>
+     <p>Encontre perto de ti o professor ideal:</p><br><br><br>
+     
      <form
       class="search-form"
       role="search"
@@ -61,14 +60,14 @@
        placeholder="Local da aula"
        aria-label="Search class location"
       />
-      <button type="submit" aria-label="Search">
-       <i class="fas fa-search"></i>
-      </button>
+      <button type="submit" aria-label="Search" class="btnSearch">
+    <i class="fa-solid fa-search"></i></button>
+      
      </form>
     </div>
     <div class="hero-image">
      <img
-      src="img/image 2.png"
+      src="../img/image 2.png"
       alt="Illustration "
       width="600"
       height="500"

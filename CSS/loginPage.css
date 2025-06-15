@@ -1,0 +1,230 @@
+*{
+    margin-top: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+ 
+ }
+
+ .main-container{
+   display: flex;
+   gap: 40px;
+   align-items: flex-start;
+ }
+ 
+ body{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #19445C 0%, #3B657A 53%, #142026 100%);
+    justify-content: center;
+ }
+ 
+ .wrapper{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background:  rgba(255, 255, 255, 0.1);
+    box-shadow:0 0 50px #0ef;
+    padding: 40px;
+    overflow: hidden;
+    border-radius: 16px;
+ 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+ }
+ 
+ .form-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: 1s ease-in-out;
+    transform: translateY(0);
+ }
+ 
+ .wrapper.active .form-wrapper.sign-in{
+    transform: translateY(-450px);
+ }
+ 
+ .wrapper .form-wrapper.sign-up{
+    position: absolute;
+    top: 450px;
+    left: 0;  
+    transform: translateY(0);
+    transition: 1s ease-in-out;
+ }
+ 
+ .wrapper.active .form-wrapper.sign-up{
+    transform: translateY(-450px);
+ }
+ 
+ h2{
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+ }
+ 
+ .input-group{
+    position:relative;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+ }
+ 
+ .input-group label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform:translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;  
+ }
+ 
+ .input-group input{
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+ }
+ 
+ .input-group input:focus ~ label,
+ .input-group input:valid ~ label {
+  top: -5px;
+ }
+ 
+ 
+ input::placeholder{
+    color: #ffffff;
+    opacity: 1;
+ }
+ 
+ button{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: #0ef;
+    box-shadow: 0 0 10px #0ef;
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+ }
+ 
+ .signUp-link{
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
+ 
+ }
+ 
+ .signUp-link p{
+    color: #fff;
+ }
+ 
+ .signUp-link p a{
+    color: #0ef;
+    text-decoration: none;
+    font-weight: 500;
+ }
+ 
+ .signUp-link p a:hover{
+    text-decoration: underline;
+ }
+ 
+ .radio-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 20px;
+  }
+   .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+  }
+   .radio-option input[type="radio"] {
+    accent-color: #ffcc00; /* amarelo destaque */
+    width: 16px;
+    height: 16px;
+  }
+
+  .explicador-info{
+   opacity: 0;
+   max-height: 0;
+   overflow: hidden;
+   transition: all 0.8s ease;
+  }
+
+  .explicador-info.visivel{
+   opacity: 1;
+   max-height: 600px; 
+  }
+
+  .explicador-box{
+   width: 400px;
+   height: auto;
+   min-height: 550px;
+   overflow: hidden;
+   opacity: 0;
+   transition: max-height 0.6s ease, opacity 0.6s ease;
+  }
+
+  .explicador-box.visivel{
+   opacity: 1;
+   max-height: 1000px; 
+  }
+
+/*Modal de aviso de criação de perfil*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4); /* Fundo escurecido */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-content.success {
+  border-left: 6px solid green;
+}
+
+.modal-content.error {
+  border-left: 6px solid red;
+}
+
+.modal .close {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+

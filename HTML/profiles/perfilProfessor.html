@@ -3,31 +3,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Perfil Professor Eureka</title>
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  rel="stylesheet"
+/>
+
   <link rel="stylesheet" href="../../CSS/perfilProfessores.css">
   
 </head>
 <body>
   <header>
-    <div class="logo">
-      EUREKA
-      <div class="dot"></div>
-    </div>
-    <nav class="main-nav">
-      <a href="#">Home</a>
-      <a href="#">Sobre nós</a>
-      <a href="#">Disciplinas</a>
-      <a href="#">Quizz</a>
-    </nav>
-    <nav class="user-nav">
-      <a href="#">Meu perfil</a>
-      <a href="#">Terminar sessão</a>
-    </nav>
+   <div class="logo"><img src="../../img/logotipo.png" alt=""></div>
+   <nav>
+        <a href="../index.html">Home</a>
+        <a href="sobre_nos.html">Sobre nós</a>
+       <a href="disciplinas.html">Disciplinas</a>
+        <a href="quiz.html">Quizz</a>
+   </nav>
+   <div class="login"><a href="login.html">Iniciar sessão</a></div>
   </header>
 
   <main>
     <section class="professor-box" style="max-width: 360px;">
       <h2>Professor de Matemática</h2>
       <p class="subtitle">Do 5º Ano ao 3º Ano Ensino superior</p>
+      <p class="localização">Porto,Matosinhos</p>
       <h3>Modalidade</h3>
       <div class="modalidade-buttons">
         <button disabled>Online</button>
@@ -38,7 +38,7 @@
     <aside class="profile-card">
       <img
         src="https://storage.googleapis.com/a1aa/image/171cc854-953f-4461-97ca-f2cfa6334928.jpg"
-        alt="Foto do professor homem de óculos com quadro negro ao fundo"
+        alt="Foto "
         width="100"
         height="100"
       />
@@ -48,12 +48,15 @@
         <p><span>Tempo de Resposta:</span> 2h+</p>
         <p><span>Número de alunos:</span> 220+</p>
         <p><span>Idade:</span> 46</p>
-      </div>
-      <button class="btn btn-edit" type="button">
-        Editar Perfil <i class="fas fa-external-link-alt" style="font-size:10px;"></i>
-      </button>
-      <button class="btn btn-delete" type="button">Eliminar Perfil</button>
+        
+      </div><button  class="btn btn-delete" type="button" id="botao-eliminar"   style="display: none;">Eliminar Perfil</button>
+      <button class="btn btn-edit" type="button" id="botao-avaliar"  style="display: none;">Avaliar Professor</button>
+      <button class="btn btn-edit" type="button" id="botao-marcar"  style="display: none;">Marcar Sessão</button></div>
+
     </aside>
+   
+    
+
   </main>
 
   <section class="info-section-wrapper">
@@ -136,6 +139,7 @@
    <div class="footer-logo font-eureka"><a href="/index.html"><img src="../img/logotipo.png" alt=""></a></div>
   </footer>
 
+  <script src="../../JS/views/paginaProfessorView.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </body>
 </html>

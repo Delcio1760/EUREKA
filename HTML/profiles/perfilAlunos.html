@@ -4,53 +4,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Perfil Eureka</title>
   <link rel="stylesheet" href="../../CSS/perfilAlunos.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  
 </head>
 <body>
   <header>
-    <a class="logo" href="#">
-      EUREKA
-    </a>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Sobre nós</a></li>
-        <li><a href="#">Disciplinas</a></li>
-        <li><a href="#">Quizz</a></li>
-      </ul>
-    </nav>
-    <div class="header-right">
-      <a href="#">Meu perfil</a>
-      <button class="btn-session" type="button">Terminar sessão</button>
-    </div>
+   <div class="logo"><img src="../../img/logotipo.png" alt=""></div>
+   <nav>
+        <a href="../paginaAlunoPosLogin.html">Home</a>
+        <a href="../HTML/sobre_nos.html">Sobre nós</a>
+       <a href="../HTML/disciplinas.html">Disciplinas</a>
+        <a href="../HTML/quiz.html">Quizz</a>
+   </nav>
+   
+
+   
   </header>
   <main>
     <div aria-label="Perfil do usuário e dados exibidos" class="profile-container" role="region">
       <section class="profile-left">
         <h2>O meu perfil</h2>
         <div class="field">
-          <span class="label">Nome completo</span>
-          <span class="value" title="José Soares">José Soares</span>
+            <label class="label" for="nome-completo">Nome Do Utilizador</label>
+            <input id="nome-completo" class="input-edit" type="text" placeholder="José Soares" disabled></input>
         </div>
         <div class="field">
-          <span class="label">Data de nascimento</span>
-          <span class="value" title="2007-04-15">15/04/2007</span>
+          <label class="label" for="nome-completo">Email</label>
+            <input id="email" class="input-edit" type="text" placeholder="joão@gmail.com" disabled>
+        </div>
+
+        
+        <div class="field">
+          <label class="label" for="nome-completo">Data de Nascimento</label>
+            <input id="data-nascimento" class="input-edit" type="text" placeholder="01/11/2000 "disabled>
+        </div>
+        
+        <div class="field">
+          <label class="label" for="nome-completo">telefone</label>
+            <input id="telefone" class="input-edit" type="text" placeholder="923452900" disabled>
         </div>
         <div class="field">
-          <span class="label">Email</span>
-          <span class="value" title="jose.soares@example.com">jose.soares@example.com</span>
-        </div>
-        <div class="field">
-          <span class="label">Telefone</span>
-          <span class="value" title="+351 912 345 678">+351 912 345 678</span>
-        </div>
-        <div class="field">
-          <span class="label">Morada</span>
-          <span class="value" title="Rua Dom Sancho I, Arganil">Rua Dom Sancho I, Arganil</span>
+          <label class="label" for="nome-completo">Morada</label>
+            <input id="morada" class="input-edit" type="text" placeholder="Rua Dom Sancho I, Arjivai" disabled>
         </div>
       </section>
       <section aria-label="Informações do perfil do usuário" class="profile-right">
-        <img alt="Foto de perfil de um homem jovem com camisola azul em ambiente interno" height="80" src="https://storage.googleapis.com/a1aa/image/f4237d22-8060-43f4-4c48-6e95fbdbc151.jpg" width="80"/>
+        <img alt="Foto de perfil" height="80" src="https://storage.googleapis.com/a1aa/image/f4237d22-8060-43f4-4c48-6e95fbdbc151.jpg" width="80"/>
         <h3>José Soares</h3>
         <p>16 nos</p>
         <p class="role">Aluno</p>
@@ -61,7 +59,7 @@
       </section>
     </div>
   </main>
-   <footer>
+  <footer>
    <div class="footer-section">
     <h3>Sobre nós</h3>
     A plataforma simples e eficaz onde será apresentado o professor ao aluno,
@@ -77,6 +75,7 @@
    </div>
    <div class="footer-logo font-eureka"><a href="/index.html"><img src="../img/logotipo.png" alt=""></a></div>
   </footer>
-
+   
+<script type="module" src="../../JS/views/perfilAlunoView.js"></script>
 </body>
 </html>

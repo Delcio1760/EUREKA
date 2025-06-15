@@ -1,67 +1,79 @@
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cards Simples de Professores</title>
+  <title>Equipe de Professores</title>
   <style>
-    
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #3a667a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem;
+      color: white;
+    }
+    h1 {
+      font-weight: 800;
+      font-size: 2.25rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      text-align: center;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem 3.5rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+    @media (min-width: 640px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 768px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card img {
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 3 / 2;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .card img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+    .card p {
+      margin-top: 1rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+      letter-spacing: 0.05em;
+      text-align: center;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Professores</h1>
-    <section class="grid">
-      <article class="card">
-        <img src="https://storage.googleapis.com/a1aa/image/11238f3b-850f-4c49-64e3-5345ba8a2d66.jpg" alt="Retrato do Professor João Silva, homem de meia-idade, cabelos curtos e grisalhos, sorrindo" />
-        <h2>João Silva</h2>
-        <p>Matemática</p>
-      </article>
-      <article class="card">
-        <img src="https://storage.googleapis.com/a1aa/image/6367eb22-12c0-412c-9ecf-27690c5553ae.jpg" alt="Retrato da Professora Maria Fernanda, mulher jovem, cabelos longos castanhos, sorrindo" />
-        <h2>Maria Fernanda</h2>
-        <p>História</p>
-      </article>
-      <article class="card">
-        <img src="https://storage.googleapis.com/a1aa/image/087b6fe7-dee2-4fb0-9b35-baa0a5792e90.jpg" alt="Retrato do Professor Carlos Almeida, homem de cabelos curtos pretos, usando óculos, sorrindo" />
-        <h2>Carlos Almeida</h2>
-        <p>Física</p>
-      </article>
-      <article class="card">
-        <img src="https://storage.googleapis.com/a1aa/image/44711179-d5b9-410c-d0c9-8363f66aa8c1.jpg" alt="Retrato da Professora Ana Lúcia, mulher de cabelos curtos loiros, sorrindo" />
-        <h2>Ana Lúcia</h2>
-        <p>Biologia</p>
-      </article>
-      <article class="card">
-        <img src="https://storage.googleapis.com/a1aa/image/faa175fb-db7d-4e86-0231-333e1d2b4fd4.jpg" alt="Retrato do Professor Ricardo Mendes, homem de cabelos grisalhos, barba curta, sorrindo" />
-        <h2>Ricardo Mendes</h2>
-        <p>Química</p>
-      </article>
-      <article class="card">
-        <img src="https://storage.googleapis.com/a1aa/image/7f0c9337-61f1-4fe3-9b50-470a0762f95c.jpg" alt="Retrato da Professora Beatriz Santos, mulher jovem, cabelos cacheados pretos, sorrindo" />
-        <h2>Beatriz Santos</h2>
-        <p>Inglês</p>
-      </article>
-      <article class="card">
-        <img src="https://storage.googleapis.com/a1aa/image/f2ae339e-b34e-4869-9791-d1eb716eb0cb.jpg" alt="Retrato do Professor Felipe Costa, homem jovem, cabelos castanhos curtos, sorrindo" />
-        <h2>Felipe Costa</h2>
-        <p>Educação Física</p>
-      </article>
-      <article class="card">
-        <img src="https://storage.googleapis.com/a1aa/image/8762375f-8020-45f2-7cd8-72d4de59e293.jpg" alt="Retrato da Professora Clara Moura, mulher de cabelos loiros longos, sorrindo" />
-        <h2>Clara Moura</h2>
-        <p>Literatura</p>
-      </article>
-      <article class="card">
-        <img src="https://storage.googleapis.com/a1aa/image/c80874b0-b3a7-4a20-c478-15487860fab6.jpg" alt="Retrato do Professor Lucas Pereira, homem jovem, cabelos pretos curtos, sorrindo" />
-        <h2>Lucas Pereira</h2>
-        <p>Geografia</p>
-      </article>
-      <article class="card">
-        <img src="https://storage.googleapis.com/a1aa/image/a5752328-46e4-429e-deac-d8dfe42658b7.jpg" alt="Retrato da Professora Juliana Rocha, mulher de cabelos castanhos longos, sorrindo" />
-        <h2>Juliana Rocha</h2>
-        <p>Artes</p>
-      </article>
-    </section>
-  </main>
+ 
 </body>
 </html>

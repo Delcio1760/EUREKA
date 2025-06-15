@@ -1,36 +1,101 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-PT">
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Login Page</title>
- <link rel="stylesheet" href="../CSS/login.css">
- 
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina Login</title>
+  <link rel="stylesheet" href="/CSS/loginPage.css">
 </head>
 <body>
-  <div class="glass-card">
-    <div class="logo-section">
-      <img
-        src="../img/Group 128.png"
-        alt="Logo"
-        width="160"
-        height="160"
-      />
+  <div class="main-container">
+    <!-- CAIXA PRINCIPAL: login e registro -->
+    <div class="wrapper">
+      <!-- LOGIN FORM -->
+      <div class="form-wrapper sign-in">
+        <form>
+          <h2>Login</h2>
+          <div class="input-group">
+            <input id="Username-input" type="text" placeholder="Username" required>
+          </div>
+          <div class="input-group">
+            <input id="Password-input" type="password" placeholder="Password" required>
+          </div>
+          <button id="login-btn" type="submit">Login</button>
+          <div class="signUp-link">
+            <p>Não tens conta? <a href="#" class="signUpBtn-link">Registro</a></p>
+          </div>
+        </form>
+      </div>
+
+      <!-- REGISTO FORM -->
+      <div class="form-wrapper sign-up">
+        <form>
+          <h2>Registro</h2>
+          <div class="input-group">
+            <input id="Username-Registro" type="text" required placeholder="Username">
+          </div>
+          <div class="input-group">
+            <input id="Email-Registro" type="email" required placeholder="EMAIL">
+          </div>
+          <div class="input-group">
+            <input id="Password-registro" type="password" required placeholder="Password">
+          </div>
+
+          <div class="radio-group">
+            <label class="radio-option">
+              <input id="aluno-radiobtn" type="radio" name="role" value="aluno" required>
+              <span>Aluno</span>
+            </label>
+            <label class="radio-option">
+              <input id="explicador-radiobtn" type="radio" name="role" value="explicador" required>
+              <span>Explicador</span>
+            </label>
+          </div>
+
+          <button id="registro-btn" type="submit">Registrar</button>
+          <div class="signUp-link">
+            <p>Já tens conta? <a href="#" class="signInBtn-link">Login</a></p>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="form-section">
-      <h2>Login</h2>
-      <form>
-        <div class="input-group">
-          <input type="email" placeholder="Email" required />
-          <i class="fas fa-envelope"></i>
-        </div>
-        <div class="input-group">
-          <input type="password" placeholder="Password" required />
-          <i class="fas fa-lock"></i>
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      <a href="registro.html" class="register-link">Cadastro</a>
+
+    <!-- CAIXA EXTRA PARA EXPLICADOR -->
+    <div id="explicador-box" class="wrapper explicador-box oculto">
+      <div class="form-wrapper">
+        <form>
+          <h2>Informações adicionais</h2>
+          <div class="input-group">
+            <input type="text" id="idade" placeholder="Data de Nascimento (DD/MM/AAAA)" required>
+          </div>
+          <div class="input-group">
+            <input type="text" id="disciplinas" placeholder="Disciplinas que leciona (Separadas por ',')" required>
+          </div>
+          <div class="input-group">
+            <input type="text" id="numero" placeholder="Numero de telefone" required>
+          </div>
+          <div class="input-group">
+            <input type="text" id="modalidades" placeholder="Modalidades de ensino" required>
+          </div>
+          <div class="input-group">
+            <input type="text" id="preco" placeholder="Preço por hora" required>
+          </div>
+          <div class="input-group">
+            <input type="text" id="disponiblidade" placeholder="Indica a tua disponibilidade" required>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
+  <div id="mensagemModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modalMensagemTexto"></p>
+  </div>
+</div>
+
+
+  <script src="/JS/views/loginView.js" type="module" defer></script>
 </body>
 </html>

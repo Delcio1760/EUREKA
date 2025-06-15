@@ -1,67 +1,97 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eureka Page</title>
-  <style>
-   
-  </style>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Eureka</title>
+  <link rel="stylesheet" href="../../CSS/homepageprof.css">
+  
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <link rel="stylesheet" href="../../CSS/homepageprof.css">
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <header>
-    <h1>EUREKA</h1>
+    <div class="logo">
+      <img src="../../img/logotipo.png" alt="Site logo" />
+    </div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Sobre nós</a>
-      <a href="#">Disciplinas</a>
+      <a href="../index.html">Home</a>
+      <a href="sobre_nos.html">Sobre nós</a>
+      <a href="disciplinas.html">Disciplinas</a>
+      <a href="quiz.html">Quizz</a>
     </nav>
-    <div class="header-buttons">
-      <button type="button">Meu perfil</button>
-      <button type="button">Terminar sessão</button>
+    <div class="login">
+      <a href="">Terminar sessão</a>
     </div>
   </header>
-  <main>
+
+  <div class="container">
     <aside>
-      <button type="button"><i class="fas fa-comment-alt"></i> Mensagens</button>
-      <button type="button"><i class="fas fa-user-friends"></i> Meus alunos</button>
-      <button type="button"><i class="fas fa-file-alt"></i> Solicitações</button>
       <img
         src="../../img/Group 128.png"
-        alt="Logo "
+        alt="Logo"
+        class="logo-sidebar"
         width="120"
-        height="170"
+        height="200"
       />
+      <nav class="sidebar-nav" role="navigation" aria-label="Sidebar menu">
+        
+        <button type="button" id="buttonPerfil">
+          <i class="fas fa-edit" ></i>
+          <span>Editar Descrições</span>
+        </button>
+        <button type="button" id="buttonAjuda">
+          <i class="fas fa-edit" aria-hidden="true" "></i>
+          <span>Editar perfil</span>
+        </button>
+        <button type="button" id="buttonAlunos">
+          <i class="fas fa-user-friends" aria-hidden="true"></i>
+          <span>Meus alunos</span>
+        </button>
+        <button type="button" id="buttonSolicitações">
+          <i class="fas fa-inbox" aria-hidden="true"></i>
+          <span>Solicitações</span>
+        </button>
+         
+       
+        <button type="button" id="buttonGerir">
+          <i class="fas fa-gear" aria-hidden="true"></i>
+          <span>Gerir Sessões</span>
+        </button>
+         <button type="button" id="buttonLogout">
+          <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+          <span>Logout</span>
+        
+         
+      </nav>
     </aside>
-    <section>
-      <img
-        src="https://storage.googleapis.com/a1aa/image/b34dc7c4-ba7c-4957-7bd9-5c193aa43c9b.jpg"
-        alt="Man with glasses and dark turtleneck looking at a pink paper on a table with plants in background"
-        width="600"
-        height="350"
-      />
-    </section>
-  </main>
-    <footer>
-   <div class="footer-section">
-    <h3>Sobre nós</h3>
-    A plataforma simples e eficaz onde será apresentado o professor ao aluno,
-    onde poderá entrar em contacto e discutir sobre os detalhes das aulas. <br><br><br><br><br><br>
+    <main style="position: relative; width: 100%; ">
+      <video autoplay muted loop playsinline id="video-area"  style="width: 100%; height: 100%; object-fit: cover;">
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+          type="video/webm"
+        />
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          type="video/mp4"
+        />
+        seu browser não suporta o video.
+      </video>
 
-    <h3>Estamos Situados -</h3>
-    Rua Dom Sancho I, Arjivai
-   </div>
-   <div class="footer-section">
-    <h3>Contactos</h3>
-    Email- <br>
-    Eureka@gmail.com
-   </div>
-   <div class="footer-logo font-eureka"><a href="/index.html"><img src="../img/logotipo.png" alt=""></a></div>
-  </footer>
+      <div id="blank-space"></div>
+      <div id="blank-space1"></div>
 
+      <!-- botão descrição -->
+      <div id="blank-space2"></div>
+      <!-- botão editar perfil -->
+      <div id="blank-space3"></div>
+      <div id="blank-space4"></div>
+      <div id="blank-space5"></div>
 
+    </main>
+  </div>
+  <script src="../../JS/views/perfilProfessorView.js"></script>
 </body>
 </html>
