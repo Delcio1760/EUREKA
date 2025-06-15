@@ -65,24 +65,44 @@ export class Explicador{
   sobreoProfessor="";
   sobreAula=""
   anoEnsino="";
+  
 
-  constructor(username,email,password,dataNascimento,disciplinas,morada,numero,modalidades,preco,estrelas,disponibilidade,fotoPerfil,tempoResposta,sobreoProfessor,anoEnsino) {
-      this.username = username;
-      this.email = email;
-      this.password = password;
-      this.dataNascimento = dataNascimento;
-      this.disciplinas = disciplinas;
-      this.morada = morada;
-      this.numeroTelefone=numero
-      this.modalidades = modalidades;
-      this.preco = Number(preco);
-        this.estrelas = 0;                     // por defeito, o explicador comeÃ§a com 0 estrelas
-        this.disponibilidade = [];
-        this.fotoPerfil = fotoPerfil || ""; 
-        this.tempoResposta=tempoResposta
-        this.sobreoProfessor=sobreoProfessor
-        this.sobreAula=sobreAula
-  }
+ constructor(
+  username,
+  email,
+  password,
+  dataNascimento = "",
+  disciplinas = [],
+  morada = "",
+  numero = 0,
+  modalidades = [],
+  preco = 0,
+  estrelas = 0,
+  disponibilidade = [],
+  fotoPerfil = "",
+  tempoResposta = "",
+  sobreoProfessor = "",
+  sobreAula = "",
+  anoEnsino = ""
+) {
+  this.username = username;
+  this.email = email;
+  this.password = password;
+  this.dataNascimento = dataNascimento;
+  this.disciplinas = disciplinas;
+  this.morada = morada;
+  this.numeroTelefone = numero;
+  this.modalidades = modalidades;
+  this.preco = Number(preco);
+  this.estrelas = estrelas;
+  this.disponibilidade = disponibilidade;
+  this.fotoPerfil = fotoPerfil;
+  this.tempoResposta = tempoResposta;
+  this.sobreoProfessor = sobreoProfessor;
+  this.sobreAula = sobreAula;
+  this.anoEnsino = anoEnsino;
+}
+
 }
 
 

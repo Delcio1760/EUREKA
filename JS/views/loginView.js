@@ -148,20 +148,25 @@ function register(){
  
         
  
-        const novoExplicador = new Explicador(
-            username,
-            email,
-            password,
-            idade,
-            numeroTelefone,
-            disciplinas.split(",").map(d => d.trim()),
-            morada,
-            modalidades.split(",").map(m => m.trim()),
-            parseFloat(preco),
-            0, // estrelas
-            disponibilidade.split(",").map(d => d.trim()),
-            "" // fotoPerfil
-        );
+       const novoExplicador = new Explicador(
+  username,
+  email,
+  password,
+  idade || "", // dataNascimento
+  disciplinas.split(",").map(d => d.trim()) || [],
+  morada || "",
+  numeroTelefone || 0,
+  modalidades.split(",").map(m => m.trim()) || [],
+  parseFloat(preco) || 0,
+  0, // estrelas
+  disponibilidade.split(",").map(d => d.trim()) || [],
+  "", // fotoPerfil
+  "", // tempoResposta
+  "", // sobreoProfessor
+  "", // sobreAula
+  ""  // anoEnsino
+);
+
  
         explicadores.push(novoExplicador);
         localStorage.setItem("explicador", JSON.stringify(explicadores));

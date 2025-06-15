@@ -626,3 +626,14 @@ h1 {
         height: 18px;
       }
     }
+
+/*boxes de cada prof*/
+    .card-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block; /* para respeitar o tamanho da card */
+}
+.card-link:hover {
+  cursor: pointer;
+  filter: brightness(0.9);
+}
