@@ -44,6 +44,31 @@ export function getUserLogged(){
 }
 
 
+//mete os dados numa array explicadores
+export function initProfessores() {
+  explicadores = JSON.parse(localStorage.getItem('explicador')) || [];
+}
+
+
+
+//calcula a idade
+export function calcularIdade(dataNascimento) {
+  if (!dataNascimento) return "N/D";
+
+  const hoje = new Date();
+  const nascimento = new Date(dataNascimento);
+  
+  let idade = hoje.getFullYear() - nascimento.getFullYear();
+  const mes = hoje.getMonth() - nascimento.getMonth();
+
+  if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+    idade--;
+  }
+
+  return idade;
+}
+
+
 export class Aluno {
    username = "";
    password = "";

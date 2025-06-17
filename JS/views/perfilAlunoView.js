@@ -16,6 +16,7 @@ const editButton = document.querySelector('.btn-edit');
   
 function preencherPerfil() {
   const user = getUserLogged();
+  
 
   if (!user) {
     console.error("Nenhum utilizador autenticado.");

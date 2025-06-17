@@ -2,7 +2,7 @@ const LS_KEY = "explicador";
 
 let explicadores = [];
 // Caregar explicadores da LocalStorage
-export function init(){
+export function initProfessores(){
   explicadores = JSON.parse(localStorage.getItem(LS_KEY)) || [];
 }
 
@@ -16,19 +16,20 @@ export function addExplicador(username,email,password,idade,disciplinas,morada,m
 
 }
 
-
-// Login do Explicador
 export function loginExplicador(username, password) {
   const user = explicadores.find(
-      (user) => user.username === username && user.password === password);
+    (user) => user.username === username && user.password === password
+  );
 
-      if (user) {
-      sessionStorage.setItem("loggedTutor", JSON.stringify(user));
-      return true;
-      } else {
-      throw Error("Invalid username or password");
-       }          
+  if (user) {
+    sessionStorage.setItem("loggedTutor", JSON.stringify(user)); // aqui salva
+    return true;
+  } else {
+    throw Error("Invalid username or password");
+  }
 }
+
+
 
 
 // Logout do Explicador
@@ -46,9 +47,14 @@ export function isTutorLoggedin() {
 export function getTutorLogged(){
   return JSON.parse(sessionStorage.getItem("loggedTutor"));
 }
+//devolve o explicador por user name
+export function getExplicadorByUsername(username) {
+  const explicadores = JSON.parse(localStorage.getItem("explicador")) || [];
+  return explicadores.find(e => e.username === username);
+}
 
 export class Explicador{
-  id=0
+  
   username = "" ;
   email = "";
   password = "";

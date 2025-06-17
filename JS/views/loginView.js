@@ -1,5 +1,7 @@
 import { Aluno } from "../models/alunosModel.js";
 import { Explicador } from "../models/professorModel.js";
+import { initProfessores, loginExplicador } from "../models/professorModel.js";
+
 
 
 //modals de aviso
@@ -44,34 +46,63 @@ signInBtnLink.addEventListener('click', () => {
    wrapper.classList.remove('active');
 });
 
-function login(){
+
+// Inicializa os dados dos explicadores (carrega do localStorage)
+initProfessores();
+
+function login() {
   const username = document.getElementById("Username-input").value;
   const password = document.getElementById("Password-input").value;
+
+  if (username === "admin" && password === "admin123") {
+    window.location.href = "/HTML/admin/dashBoard.html";
+    return;
+  }
 
   const alunos = JSON.parse(localStorage.getItem("users")) || [];
   const explicadores = JSON.parse(localStorage.getItem("explicador")) || [];
 
   const utilizador = alunos.find(aluno => aluno.username === username && aluno.password === password) ||
-   explicadores.find(explicador => explicador.username === username && explicador.password === password);
+    explicadores.find(explicador => explicador.username === username && explicador.password === password);
 
-   if(!utilizador){
-   mostrarModal("Erro! Username ou password inválidos.", "error");
-   return;
-}
-
-   
-  sessionStorage.setItem("loggedInUser", JSON.stringify(utilizador));
-
-  
-  if (alunos.some(a => a.username === username)) {
-    window.location.href = "../../HTML/paginaAlunoPosLogin.html";
-  } else {
-    window.location.href = "../../HTML/profiles/perfilProfessor.html";
+  if (!utilizador) {
+    mostrarModal("Erro! Username ou password inválidos.", "error");
+    return;
   }
+
+  sessionStorage.setItem("loggedInUser", JSON.stringify(utilizador));
+if (explicadores.some(e => e.username === username)) {
+  const explicadorLogado = explicadores.find(e => e.username === username);
+  sessionStorage.setItem("loggedTutor", JSON.stringify(explicadorLogado));
+  window.location.href = "../../HTML/explicadores/homepageExplicadores.html";
+}
+else if  (alunos.some(a => a.username === username)) {
+    window.location.href = "../../HTML/paginaAlunoPosLogin.html";
+  }
+   
+ 
 }
 
-   
 
+
+
+// Função para ir para o perfil do explicador logado
+function irParaPerfilExplicador() {
+  const user = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+  if (!user || !user.username) {
+    alert("Nenhum utilizador autenticado.");
+    return;
+  }
+
+  // Redireciona para a página do perfil do explicador com o username na query string
+  window.location.href = `perfilProfessor.html?username=${encodeURIComponent(user.username)}`;
+}
+
+// Exemplo de uso: adiciona evento ao botão "Meu Perfil"
+document.getElementById("btnMeuPerfil")?.addEventListener("click", irParaPerfilExplicador);
+
+// Botão de login
 const loginBtn = document.getElementById("login-btn");
 loginBtn.addEventListener("click", (e) => {e.preventDefault(); login();});
 
@@ -131,24 +162,23 @@ function register(){
         // Validar dados adicionais
         const idade = document.getElementById("idade").value.trim();
         const disciplinas = document.getElementById("disciplinas").value.trim();
-        const morada = document.getElementById("morada").value.trim();
+        const morada = document.getElementById("localizacao").value.trim();
         const modalidades = document.getElementById("modalidades").value.trim();
         const preco = document.getElementById("preco").value.trim();
         const disponibilidade = document.getElementById("disponiblidade").value.trim();
         const numeroTelefone = document.getElementById("numero").value.trim();
 
-        if(isNaN(numeroTelefone||numeroTelefone.length <8)){
-          mostrarModal("Erro! Indique corretamente o numero de telefone","error")
+        if (isNaN(numeroTelefone) || numeroTelefone.length < 8) {
+          mostrarModal("Erro! Indique corretamente o número de telefone", "error");
+          return;
         }
 
-        if(!idade || !disciplinas || !morada || !modalidades || !preco || !disponibilidade||numeroTelefone){
-     mostrarModal("Erro! Deve selecionar se é aluno ou explicador", "error");
-     return;
-   }
- 
-        
- 
-       const novoExplicador = new Explicador(
+        if(!idade || !disciplinas || !morada || !modalidades || !preco || !disponibilidade || !numeroTelefone){
+          mostrarModal("Erro! Todos os campos de explicador devem estar preenchidos.", "error");
+          return;
+        }
+
+  const novoExplicador = new Explicador(
   username,
   email,
   password,
@@ -179,24 +209,34 @@ function register(){
 }
 
 
-
+//// Botões de registro
 const registrobtn = document.getElementById("registro-btn");
 registrobtn.addEventListener("click", (e) =>{e.preventDefault(); register();});
+const explicadorBtn = document.getElementById("explicador-btn");
+explicadorBtn.addEventListener("click", (e) => {e.preventDefault();register();});
 
 //animação
 const alunoRadio = document.getElementById("aluno-radiobtn");
 const explicadorRadio = document.getElementById("explicador-radiobtn");
 const explicadorBox = document.getElementById("explicador-box");
+const registroBtnPrincipal = document.getElementById("registro-btn");
+const registroBtnExplicador = document.getElementById("explicador-btn");
 
 explicadorRadio.addEventListener("change", () => {
   explicadorBox.classList.add("visivel");
+  registroBtnPrincipal.style.display = "none";
+  registroBtnExplicador.style.display = "block";
 });
 
 alunoRadio.addEventListener("change", () => {
   explicadorBox.classList.remove("visivel");
+  registroBtnPrincipal.style.display = "block";
+  registroBtnExplicador.style.display = "none"; 
 });
 
-console.log(localStorage)
+
+// console.log(localStorage)
+console.log(sessionStorage.getItem("loggedTutor"));
 
 
 
