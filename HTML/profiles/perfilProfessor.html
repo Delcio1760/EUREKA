@@ -20,7 +20,7 @@
        <a href="disciplinas.html">Disciplinas</a>
         <a href="quiz.html">Quizz</a>
    </nav>
-   <div class="login" id="btnMeuPerfil"><a href="login.html">Iniciar sessão</a></div>
+   <div class="login" id="btnMeuPerfil"><a id="btnMeuPerfil" >Terminar Sessão</a></div>
   </header>
 
   <main>
@@ -49,8 +49,11 @@
         <p><span id="Idade">Idade:</span> </p>
         
       </div><button  class="btn btn-delete" type="button" id="botao-eliminar"   >Eliminar Perfil</button>
-      <button class="btn btn-edit" type="button" id="botao-avaliar"  >Avaliar Professor</button>
+      </div><button  class="btn btn-delete" type="button" id="botao-editar"   >Editar</button>
+      <button class="btn btn-edit" type="button" id="botao-avaliar"  >Avaliar Professor<i class="fas fa-star"></i></button>
       <button class="btn btn-edit" type="button" id="botao-marcar"  >Marcar Sessão</button></div>
+      <button class="btn btn-edit" id="btnFavorito">Favoritar</button>
+
 
     </aside>
    
@@ -121,6 +124,35 @@
     </div>
   </section>
 
+  
+
+<!-- modal comentario -->
+<div id="modal-avaliacao" class="modal1">
+  <div class="modal-content1">
+    <span id="fechar-modal" class="close1">&times;</span>
+    <h3>Avaliar Professor</h3>
+    <div id="estrelas" style="font-size: 24px; cursor: pointer;">
+      <span data-value="1">☆</span>
+      <span data-value="2">☆</span>
+      <span data-value="3">☆</span>
+      <span data-value="4">☆</span>
+      <span data-value="5">☆</span>
+    </div>
+    <textarea id="comentario" placeholder="Comentário"></textarea><br>
+    <button id="confirmar-avaliacao">Avaliar</button>
+  </div>
+</div>
+
+<!-- modal avisos -->
+ <div id="mensagemModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modalMensagemTexto"></p>
+  </div>
+</div>
+
+
+
   <footer>
    <div class="footer-section">
     <h3>Sobre nós</h3>
@@ -135,9 +167,11 @@
     Email- <br>
     Eureka@gmail.com
    </div>
-   <div class="footer-logo font-eureka"><a href="/index.html"><img src="../img/logotipo.png" alt=""></a></div>
+   <div class="footer-logo font-eureka"><a href="/index.html"><img src="../../img/logotipo.png" alt=""></a></div>
   </footer>
   
+
+  <script type="module" src="../../JS/views/favoritoView.js" ></script>
   <script type="module" src="../../JS/views/paginaProfessorView.js" ></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </body>

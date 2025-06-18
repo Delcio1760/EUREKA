@@ -67,7 +67,16 @@ export function calcularIdade(dataNascimento) {
 
   return idade;
 }
-
+//ao adicionar o prof no favorito(sempre atualizar os objetos alunos)
+export function atualizarAluno(alunoAtualizado) {
+  const alunos = JSON.parse(localStorage.getItem("users")) || [];
+  const index = alunos.findIndex(a => a.username === alunoAtualizado.username);
+  if (index !== -1) {
+    alunos[index] = alunoAtualizado;
+    localStorage.setItem("users", JSON.stringify(alunos));
+    sessionStorage.setItem("alunoLogado", JSON.stringify(alunoAtualizado));
+  }
+}
 
 export class Aluno {
    username = "";
@@ -80,6 +89,7 @@ export class Aluno {
    favoritos = []; // Lista de favoritos do aluno
    filtros = {};
    fotoPerfil = "";
+   favoritos=""
    constructor(username, password, telefone, dataNascimento, email, morada,filtros,favoritos, fotoPerfil) {
        this.username = username;
        this.password = password;
@@ -95,8 +105,35 @@ export class Aluno {
            disponibilidade: [],
            precoMax: 0,
            localidade: "",  
+           
        };
+       this.favoritos = [];
        this.fotoPerfil = fotoPerfil || ""; // Foto de perfil do aluno
    }
 }
+
+
+export function adicionarFavorito(usernameExplicador) {
+  const aluno = getAlunoLogado();
+  if (!aluno.favoritos.includes(usernameExplicador)) {
+    aluno.favoritos.push(usernameExplicador);
+    salvarAluno(aluno);
+  }
+}
+
+export function removerFavorito(usernameExplicador) {
+  const aluno = getAlunoLogado();
+  aluno.favoritos = aluno.favoritos.filter(fav => fav !== usernameExplicador);
+  salvarAluno(aluno);
+}
+
+function salvarAluno(alunoAtualizado) {
+  const alunos = JSON.parse(localStorage.getItem("users")) || [];
+  const atualizados = alunos.map(aluno =>
+    aluno.username === alunoAtualizado.username ? alunoAtualizado : aluno
+  );
+  localStorage.setItem("alunos", JSON.stringify(atualizados));
+  sessionStorage.setItem("loggedAluno", JSON.stringify(alunoAtualizado));
+}
+
 

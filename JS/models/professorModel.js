@@ -71,6 +71,7 @@ export class Explicador{
   sobreoProfessor="";
   sobreAula=""
   anoEnsino="";
+  avaliações=""
   
 
  constructor(
@@ -89,7 +90,8 @@ export class Explicador{
   tempoResposta = "",
   sobreoProfessor = "",
   sobreAula = "",
-  anoEnsino = ""
+  anoEnsino = "",
+  avaliações=""
 ) {
   this.username = username;
   this.email = email;
@@ -107,6 +109,8 @@ export class Explicador{
   this.sobreoProfessor = sobreoProfessor;
   this.sobreAula = sobreAula;
   this.anoEnsino = anoEnsino;
+  this.avaliacoes = [];  // array para guardar avaliações { estrelas, comentario, autor,  }
+
 }
 
 }

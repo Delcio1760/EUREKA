@@ -123,3 +123,6 @@ editButton.addEventListener("click", () => {
 window.addEventListener("DOMContentLoaded", () => {
   preencherPerfil();
 });
+
+
+

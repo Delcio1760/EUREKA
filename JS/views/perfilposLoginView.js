@@ -1,4 +1,13 @@
+
+
+
+
+
+
+
+
 import { getExplicadorByUsername, initProfessores } from "../models/professorModel.js";
+
 
 
 
@@ -8,6 +17,7 @@ initProfessores();
 function carregarCardsExplicadores() {
   const container = document.querySelector('.grid-container');
   container.innerHTML = ''; // limpa
+  
 
   const explicadores = JSON.parse(localStorage.getItem('explicador')) || [];
 
@@ -51,3 +61,9 @@ function carregarCardsExplicadores() {
 }
 
 document.addEventListener('DOMContentLoaded', carregarCardsExplicadores);
+
+
+
+
+
+

@@ -75,6 +75,7 @@ if (explicadores.some(e => e.username === username)) {
   const explicadorLogado = explicadores.find(e => e.username === username);
   sessionStorage.setItem("loggedTutor", JSON.stringify(explicadorLogado));
   window.location.href = "../../HTML/explicadores/homepageExplicadores.html";
+  
 }
 else if  (alunos.some(a => a.username === username)) {
     window.location.href = "../../HTML/paginaAlunoPosLogin.html";
@@ -236,7 +237,7 @@ alunoRadio.addEventListener("change", () => {
 
 
 // console.log(localStorage)
-console.log(sessionStorage.getItem("loggedTutor"));
+console.log(localStorage);
 
 
 

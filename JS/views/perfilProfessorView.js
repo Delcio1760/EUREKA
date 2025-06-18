@@ -119,12 +119,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+const explicador = getTutorLogged();
+
+
+import { isTutorLoggedin, } from "../../JS/models/professorModel.js";
+console.log(getTutorLogged)
+console.log(explicador.username);
+document.addEventListener("DOMContentLoaded", () => {
+  const perfilDiv = document.getElementById("btnMeuPerfil");
+
+  if (isTutorLoggedin()) {
+    const explicador = getTutorLogged();
+    const username = explicador.username;
+
+    // Limpa o conteúdo e adiciona o link "Meu Perfil"
+    perfilDiv.innerHTML = '';  // limpa
+
+    // Cria link dinâmico para o perfil
+    const linkPerfil = document.createElement("a");
+    linkPerfil.href = "../profiles/perfilProfessor.html?username=" + username;
+    linkPerfil.textContent = "Meu Perfil";
+    linkPerfil.style.cursor = "pointer";
+    linkPerfil.style.textDecoration = "none";
+    linkPerfil.style.color = "inherit";
+
+    perfilDiv.appendChild(linkPerfil);
+  } else {
+    perfilDiv.style.display = "none";
+  }
+});
 
 
 
-// const explicadores = JSON.parse(localStorage.getItem("explicador")) || [];
 
-//para adicionar o conteudo de cada professor em paginas diferntes
+
+
+
 
 
 
