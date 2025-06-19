@@ -442,4 +442,97 @@
 
       
     }
+
+h1 {
+  text-align: center;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+
+/* Tabela professores */
+#tabela-professores-contactados {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 3rem;
+  margin-bottom: 10rem;
+}
+
+/* Cabeçalho */
+#tabela-professores-contactados thead tr {
+  background-color: #4A90E2;
+  color: white;
+  text-align: left;
+}
+
+/* Células do cabeçalho */
+#tabela-professores-contactados th {
+  padding: 10px;
+  border-bottom: 2px solid #3b78c1;
+}
+
+/* Células do corpo */
+#tabela-professores-contactados td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+/* Imagens de perfil */
+#tabela-professores-contactados td img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* Estilo para mobile */
+@media (max-width: 600px) {
+  #tabela-professores-contactados,
+  #tabela-professores-contactados thead,
+  #tabela-professores-contactados tbody,
+  #tabela-professores-contactados tr,
+  #tabela-professores-contactados td {
+    display: block;
+    width: 100%;
+  }
+
+  #tabela-professores-contactados thead {
+    display: none;
+  }
+
+  #tabela-professores-contactados tr {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+
+  #tabela-professores-contactados td {
+    text-align: left;
+    padding: 8px 0;
+    border: none;
+  }
+
+  #tabela-professores-contactados td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+    color: #333;
+  }
+
+  #tabela-professores-contactados td img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+  }
+}
+
+
   

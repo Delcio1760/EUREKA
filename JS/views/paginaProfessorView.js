@@ -25,7 +25,7 @@ function mostrarModal(mensagem, tipo = "success") {
 
   setTimeout(() => {
     modal.style.display = "none";
-  }, 3000);
+  }, 8000);
 }
 
 
@@ -51,7 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Preenchimento dos dados do perfil
   document.getElementById("nomeProfessor").textContent = explicador.username;
-  document.getElementById("professorDisciplina").textContent = `Professor de ${explicador.disciplinas.join(", ")}`;
+  document.getElementById("professorDisciplina").textContent = `Professor (a) de ${explicador.disciplinas.join(", ")}`;
   document.getElementById("grauEnsino").textContent = explicador.anoEnsino || "";
   document.getElementById("localizacao").textContent = explicador.morada || "";
   document.getElementById("preco").innerHTML = `Preço por hora/aula: €${explicador.preco}`;
@@ -387,7 +387,7 @@ btnConfirmar.addEventListener("click", () => {
   
   // Fecha o modal
   modal.style.display = "none";
-  mostrarModal("Avaliação adicionada com sucesso!", "error");
+  mostrarModal("Avaliação adicionada com sucesso!", "sucess");
     return;
   
   
@@ -398,5 +398,191 @@ btnConfirmar.addEventListener("click", () => {
 
 
 
+import { getUserLogged } from '../models/alunosModel.js';
 
 
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  
+  const botaoContacto = document.getElementById('btn-contactar');
+  if (!botaoContacto) {
+    console.error("Botão btn-contactar não encontrado.");
+    return;
+  }
+botaoContacto.addEventListener("click", () => {
+  const params = new URLSearchParams(window.location.search);
+  const usernameProf = params.get("username");
+  const alunoLogado1 = getUserLogged();
+
+  if (!alunoLogado1) {
+    alert("Erro: usuário logado não encontrado.");
+    return;
+  }
+
+  if (!usernameProf) {
+    alert("Professor não especificado na URL.");
+    return;
+  }
+
+  const explicadores = JSON.parse(localStorage.getItem("explicador")) || [];
+  const index = explicadores.findIndex(e => e.username === usernameProf);
+  if (index === -1) {
+    alert("Professor não encontrado.");
+    return;
+  }
+
+  const alunoLogado = JSON.parse(sessionStorage.getItem("loggedInUser"));
+  console.log(alunoLogado);
+
+  const novoContacto = {
+    alunoUsername: alunoLogado.username,
+    telefone: alunoLogado.telefone || "",
+    fotoPerfil: alunoLogado.fotoPerfil || "../../img/defaultimg.jpg",
+    email: alunoLogado.email || "",
+    dataNascimento: alunoLogado.dataNascimento || "",
+    modalidade: alunoLogado.filtros?.modalidades?.[0] || "Não especificada"
+  };
+
+  console.log("Novo contacto a ser adicionado:", novoContacto);
+
+  if (!Array.isArray(explicadores[index].contactados)) {
+    explicadores[index].contactados = [];
+  }
+
+  // Verifica se já existe esse aluno na lista de contactados
+  const jaContactado = explicadores[index].contactados.some(
+    c => c.alunoUsername === novoContacto.alunoUsername
+  );
+
+  if (jaContactado) {
+ 
+  mostrarModal(" Você já entrou em contato com este professor.Os seus dados(numero de telemovel,nome,email...) foram enviados para ao caminho dele.Fique atento ao teu email e ao whatsapp", "sucess");
+  return;
+  
+    
+  }
+
+  explicadores[index].contactados.push(novoContacto);
+  localStorage.setItem("explicador", JSON.stringify(explicadores));
+const users = JSON.parse(localStorage.getItem("users")) || [];
+  const alunoIndex = users.findIndex(u => u.username === alunoLogado.username);
+  if (alunoIndex !== -1) {
+    if (!Array.isArray(users[alunoIndex].professoresContactados)) {
+      users[alunoIndex].professoresContactados = [];
+    }
+
+    // Verifica se já foi adicionado
+    const jaExiste = users[alunoIndex].professoresContactados.some(
+      p => p.username === usernameProf
+    );
+
+    if (!jaExiste) {
+      users[alunoIndex].professoresContactados.push({ username: usernameProf });
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+  }
+
+  
+
+
+mostrarModal("Sucesso! agendamento feito! Aguarde o feedback do Professor", "sucess");
+  return;
+  
+
+  
+    
+
+  
+    
+  
+  
+});
+
+});
+
+
+
+
+  
+
+
+
+
+
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+  if (!loggedInUser) return;
+
+  // Esconde todos os botões inicialmente
+  document.getElementById("botao-avaliar").style.display = "none";
+  document.getElementById("btn-contactar").style.display = "none";
+  document.getElementById("botao-eliminar").style.display = "none";
+  document.getElementById("botao-editar").style.display = "none";
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const explicadores = JSON.parse(localStorage.getItem("explicador")) || [];
+
+  const isAluno = users.some(user => user.username === loggedInUser.username);
+  const isProfessor = explicadores.some(prof => prof.username === loggedInUser.username);
+
+  if (isAluno) {
+    document.getElementById("botao-avaliar").style.display = "inline-block";
+    document.getElementById("btn-contactar").style.display = "inline-block";
+  }
+
+  if (isProfessor) {
+    document.getElementById("botao-eliminar").style.display = "inline-block";
+    document.getElementById("botao-editar").style.display = "inline-block";
+  }
+});
+
+
+//mudar foto de perfil
+const inputFoto = document.getElementById("fotoInput");
+const imgPerfil = document.getElementById("fotoPerfil");
+
+inputFoto.addEventListener("change", (event) => {
+  const ficheiro = event.target.files[0];            // verifica se o utilizador selecionou um ficheiro
+  if (!ficheiro) return;
+
+  const leitor = new FileReader();
+
+  leitor.onload = function (e) {         // quando a leitura do ficheiro for concluída e o resultado estiver disponível ele executa esta função
+    const user = getUserLogged();
+    if (!user) return;
+
+    user.fotoPerfil = e.target.result;         // atribui o resultado da leitura do ficheiro à propriedade fotoPerfil do utilizador
+
+    // Atualiza sessionStorage
+    sessionStorage.setItem("loggedInUser", JSON.stringify(user));
+
+    // Atualiza localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const index = users.findIndex((u) => u.username === user.username);
+    if (index !== -1) {     // verifica se o utilizador existe no localStorage
+      users[index] = user;   // atualiza o utilizador no array de utilizadores
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+
+    // Atualiza imagem no DOM
+    imgPerfil.src = user.fotoPerfil;
+  };
+
+  leitor.readAsDataURL(ficheiro);      // lê o ficheiro como uma URL de dados
+});
+
+
+
+
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  preencherPerfil();
+});

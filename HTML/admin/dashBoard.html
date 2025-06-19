@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Admin-Dasboard</title>
+ <link rel="stylesheet" href="/CSS/adminPage.css"/>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+ <!-- Sidebar -->
+ <div class="sidebar">
+  <div class="menu">
+    <div class="menu-item" data-section="dashboard">📊 Dashboard</div>
+    <div class="menu-item" data-section="alunos">🧑‍🎓 Alunos</div>
+    <div class="menu-item" data-section="explicadores">🧑‍🏫 Explicadores</div>
+    <div class="menu-item" data-section="disciplinas">Gestão de Disciplinas</div>
+    <a class="menu-item" href="gerirquizes.html">📝 Gerir Quizes</a>
+    <div class="logo">
+      <img src="/img/Icone_logo.png" alt="Logo" class="icon-logo" />
+    </div>
+  </div>
+ </div>
+
+ <!-- Conteudo Principal -->
+ <div class="main">
+   <section id="dashboard" class="content-section active">
+     <div class="cards">
+       <div class="card">
+         <h2 id="total-utilizadores">0</h2>
+         <p>Utilizadores</p>
+       </div>
+       <div class="card">
+         <h2 id="total-alunos">0</h2>
+         <p>Alunos</p>
+       </div>
+       <div class="card">
+         <h2 id="total-explicadores">0</h2>
+         <p>Explicadores</p>
+       </div>
+     </div>
+
+     <div class="stats">
+      <h3>Estatísticas de Utilizadores</h3>
+      <div class="grafico">
+       <canvas id="graficoUtilizadores"></canvas>
+     </div>
+
+
+     <div class="tasks">
+      <h3>Explicadores por Disciplina</h3>
+      <canvas id="graficoDisciplinas"></canvas>
+    </div>
+
+     <div class="alerts">
+       <h3>Alertas</h3>
+       <table>
+         <thead>
+           <tr>
+             <th>ID</th>
+             <th>Status</th>
+             <th>Mensagem</th>
+             <th>Tipo</th>
+             <th>Data</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>1546</td>
+             <td><span class="tag critical">Critical</span></td>
+             <td>High rejection rate</td>
+             <td>Lead</td>
+             <td>2018-03-27</td>
+           </tr>
+           <tr>
+             <td>1547</td>
+             <td><span class="tag danger">Danger</span></td>
+             <td>No new conversions</td>
+             <td>Conversion</td>
+             <td>2018-03-27</td>
+           </tr>
+           <tr>
+             <td>1548</td>
+             <td><span class="tag error">Error</span></td>
+             <td>High rejection rate</td>
+             <td>Lead</td>
+             <td>2018-03-27</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+   </section>
+
+   <section id="alunos" class="content-section">
+     <h2>Alunos</h2>
+     <table>
+       <thead>
+         <tr>
+           <th></th>
+           <th>Nome</th>
+           <th>Data de Nascimento</th>
+           <th>Email</th>
+           <th>Morada</th>
+           <th>Ação</th>
+         </tr>
+       </thead>
+       <tbody id="alunos-tbody">
+         <tr>
+           <td><input type="checkbox" /></td>
+           <td><img src="aluno1.jpg" class="avatar" alt="Avatar" /> João Pedro</td>
+           <td>18</td>
+           <td>xxxx@xx.com</td>
+           <td>xxxxxxxx</td>
+           <td class="action-icons">
+             <img src="/img/edit.png" alt="Editar" />
+             <img src="/img/delete.png" alt="Apagar" />
+           </td>
+         </tr>
+         <!-- ...mais alunos -->
+       </tbody>
+     </table>
+   </section>
+
+   <section id="explicadores" class="content-section">
+     <h2>Explicadores</h2>
+     <table>
+       <thead>
+         <tr>
+           <th></th>
+           <th>Nome</th>
+           <th>Email</th>
+           <th>Disciplinas</th>
+           <th>Morada</th>
+           <th>Ação</th>
+         </tr>
+       </thead>
+       <tbody id="explicadores-tbody">
+       </tbody>
+     </table>
+   </section>
+
+   <section id="administradores" class="content-section">
+     <h2>Administradores</h2>
+     <table>
+       <thead>
+         <tr>
+           <th></th>
+           <th>Nome</th>
+           <th>Email</th>
+           <th>Função</th>
+           <th>Ação</th>
+         </tr>
+       </thead>
+       <tbody>
+       </tbody>
+     </table>
+   </section>
+ </div>
+<script type="module" src="/JS/views/adminView.js"></script>
+</body>
+</html>
+

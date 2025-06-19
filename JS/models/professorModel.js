@@ -16,6 +16,8 @@ export function addExplicador(username,email,password,idade,disciplinas,morada,m
 
 }
 
+
+
 export function loginExplicador(username, password) {
   const user = explicadores.find(
     (user) => user.username === username && user.password === password
@@ -53,6 +55,15 @@ export function getExplicadorByUsername(username) {
   return explicadores.find(e => e.username === username);
 }
 
+
+
+export function getUsernamesProfessores() {
+  const professores = JSON.parse(localStorage.getItem(LS_KEY)) || [];
+  // Retorna só os usernames
+  return professores.map(prof => prof.username);
+}
+
+
 export class Explicador{
   
   username = "" ;
@@ -71,7 +82,8 @@ export class Explicador{
   sobreoProfessor="";
   sobreAula=""
   anoEnsino="";
-  avaliações=""
+  
+  contactados=[]
   
 
  constructor(
@@ -91,7 +103,8 @@ export class Explicador{
   sobreoProfessor = "",
   sobreAula = "",
   anoEnsino = "",
-  avaliações=""
+  avaliações=[],
+  contactados=[]
 ) {
   this.username = username;
   this.email = email;
@@ -109,12 +122,12 @@ export class Explicador{
   this.sobreoProfessor = sobreoProfessor;
   this.sobreAula = sobreAula;
   this.anoEnsino = anoEnsino;
-  this.avaliacoes = [];  // array para guardar avaliações { estrelas, comentario, autor,  }
+  this.avaliacoes = avaliações;  // array para guardar avaliações { estrelas, comentario, autor,  }
+  this.contactados=contactados
 
 }
 
 }
-
 
 
 

@@ -36,6 +36,39 @@ function preencherPerfil() {
   document.querySelector(".profile-right img").src = "../../img/" + (user.fotoPerfil || "default.jpg");
 }
 
+
+// tabela de professores contactados
+window.addEventListener("DOMContentLoaded", () => {
+  const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+  if (!loggedInUser) return;
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const explicadores = JSON.parse(localStorage.getItem("explicador")) || [];
+
+  const aluno = users.find(u => u.username === loggedInUser.username);
+  if (!aluno || !Array.isArray(aluno.professoresContactados)) return;
+
+  const tbody = document.querySelector("#tabela-professores-contactados tbody");
+  tbody.innerHTML = "";
+
+  aluno.professoresContactados.forEach(contactado => {
+    const prof = explicadores.find(e => e.username === contactado.username);
+    if (prof) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td><img src="${prof.fotoPerfil || '../../img/defaultimg.jpg'}" width="50" height="50" alt="Foto de ${prof.username}"></td>
+        <td>${prof.username}</td>
+        <td>${prof.tempoResposta || "N/A"}</td>
+        <td>${prof.numeroTelefone || "N/A"}</td>
+        <td>${prof.email || "N/A"}</td>
+        <td>${prof.preco ? prof.preco + "€" : "N/A"}</td>
+      `;
+      tbody.appendChild(tr);
+    }
+  });
+});
+
+
   
 
 
@@ -116,6 +149,42 @@ editButton.addEventListener("click", () => {
 
 
 
+//mudar foto de perfil
+const inputFoto = document.getElementById("fotoInput");
+const imgPerfil = document.getElementById("fotoPerfil");
+
+inputFoto.addEventListener("change", (event) => {
+  const ficheiro = event.target.files[0];            // verifica se o utilizador selecionou um ficheiro
+  if (!ficheiro) return;
+
+  const leitor = new FileReader();
+
+  leitor.onload = function (e) {         // quando a leitura do ficheiro for concluída e o resultado estiver disponível ele executa esta função
+    const user = getUserLogged();
+    if (!user) return;
+
+    user.fotoPerfil = e.target.result;         // atribui o resultado da leitura do ficheiro à propriedade fotoPerfil do utilizador
+
+    // Atualiza sessionStorage
+    sessionStorage.setItem("loggedInUser", JSON.stringify(user));
+
+    // Atualiza localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const index = users.findIndex((u) => u.username === user.username);
+    if (index !== -1) {     // verifica se o utilizador existe no localStorage
+      users[index] = user;   // atualiza o utilizador no array de utilizadores
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+
+    // Atualiza imagem no DOM
+    imgPerfil.src = user.fotoPerfil;
+  };
+
+  leitor.readAsDataURL(ficheiro);      // lê o ficheiro como uma URL de dados
+});
+
+
+
 
 
 
@@ -123,6 +192,5 @@ editButton.addEventListener("click", () => {
 window.addEventListener("DOMContentLoaded", () => {
   preencherPerfil();
 });
-
 
 

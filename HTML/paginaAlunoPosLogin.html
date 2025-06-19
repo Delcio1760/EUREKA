@@ -8,29 +8,34 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
- <link rel="stylesheet" href="../HTML/Favoritos.html">
+ 
 
  </head>
  <body>
   </head>
  <body>
-  <header>
+   
+<header>
    <div class="logo"><img src="../img/logotipo.png" alt=""></div>
    <nav>
-        <a href="../index.html">Home</a>
-        <a href="/HTML/sobre_nos.html">Sobre nós</a>
-       <a href="HTML/disciplinas.html">Disciplinas</a>
-        <a href="HTML/quiz.html">Quizz</a>
-        <a id="btnFavoritos">Favoritos</a>
-
+         
+          <a href="../index.html">Home</a>
+          <a href="../HTML/sobre_nos.html">Sobre nós</a>
+          <a href="../HTML/quiz.html">Quizz</a>
+          <a href="../HTML/leaderboard.html">Top Jogadores</a>
+          
+           
    </nav>
-  
-
-<div >
+   
+   <div >
   <a href="../HTML/profiles/perfilAlunos.html">
     <i class="fa-solid fa-user"></i> Meu perfil
   </a>
 </div>
+
+   
+  </header>
+
 
 
    
@@ -49,21 +54,13 @@
       method="get"
       action="#"
      >
-      <input
-       type="search"
-       name="disciplinas"
-       placeholder="Disciplina"
-       aria-label="Search disciplines"
-      />
-      <div class="divider"></div>
-      <input
-       type="search"
-       name="local"
-       placeholder="Localização"
-       aria-label="Search class location"
-      />
-      <button type="submit" aria-label="Search" class="btnSearch">
-    <i class="fa-solid fa-search"></i></button>
+     
+    <label class="search-label" for="filtros" id="filtrar">
+  Clique aqui para filtrar professores
+  <button type="submit" aria-label="Search" id="buttonFiltrar">
+    <i class="fas fa-search"></i>
+  </button>
+</label>
       
      </form>
     </div>

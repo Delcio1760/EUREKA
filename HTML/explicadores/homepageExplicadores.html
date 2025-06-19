@@ -19,12 +19,13 @@
     </div>
     <nav>
       <a href="/index.html">Home</a>
-      <a href="sobre_nos.html">Sobre nós</a>
-      <a href="disciplinas.html">Disciplinas</a>
-      <a href="#" id="btnFavoritos" style="display: none;">Favoritos</a>
+      <a href="../quiz.html">Quizz</a>
+      <div class="login" id='btnMeuPerfil'></div>
+      
       
       
     </nav>
+    
 
     
   
@@ -50,10 +51,7 @@
         </button>
          
        
-        <button type="button" id="buttonGerir">
-          <i class="fas fa-gear" aria-hidden="true"></i>
-          <span>Gerir Aulas</span>
-        </button>
+        
         
          <button type="button" id="buttonLogout">
           <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
@@ -65,13 +63,10 @@
     <main style="position: relative; width: 100%; ">
       <video autoplay muted loop playsinline id="video-area"  style="width: 100%; height: 100%; object-fit: cover;">
         <source
-          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+          src="../../Video/tech.mp4"
           type="video/webm"
         />
-        <source
-          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-          type="video/mp4"
-        />
+        
         seu browser não suporta o video.
       </video>
 
@@ -89,6 +84,14 @@
 
     </main>
   </div>
+
+
+  <div id="mensagemModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modalMensagemTexto"></p>
+  </div>
+</div>
   <script src="../../JS/views/perfilProfessorView.js" type="module"></script>
 
 </body>

@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #2e5365;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 300px;
+    background-color: #0e161a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha tudo à esquerda */
+    padding: 40px 20px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .menu-item {
+    color: white;
+    font-size: 16px;
+    padding-left: 10px;
+  }
+  
+  .logo {
+    margin-top: 50px;
+    width: 100%; 
+    display: flex;
+    justify-content: flex-start; 
+  }
+  
+  .logo img {
+    max-height: 200px;
+    object-fit: contain;
+    display: flex;
+  }
+  
+  /* Frase */
+  .slogan {
+    color: white;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 10px;
+    line-height: 1.4;
+  }
+  
+  /* Conteúdo principal */
+  .main-content {
+    flex: 1;
+    background-color: #2e5365;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .main-content h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .quiz-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .quiz-form input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    color: white;
+  }
+  
+  .quiz-form label {
+    font-size: 14px;
+  }
+  
+  .quiz-form button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .quiz-form button:hover {
+    background-color: #e4e4e4;
+  }
+  
+/*modals aviso*/
+  .modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-content.success {
+  border-left: 6px solid green;
+}
+
+.modal-content.error {
+  border-left: 6px solid red;
+}
+
+.modal .close {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}

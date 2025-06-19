@@ -226,5 +226,49 @@
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .wrapper {
+    width: 90%;
+    height: auto;
+    padding: 30px 20px;
+  }
+
+  .form-wrapper {
+    flex-direction: column;
+  }
+
+  .input-group input {
+    width: 100%;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .explicador-box {
+    width: 90%;
+  }
+
+  .modal-content {
+    width: 90%;
+    margin-top: 40%;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
 
 

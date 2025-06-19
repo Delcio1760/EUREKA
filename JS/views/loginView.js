@@ -74,6 +74,20 @@ function login() {
 if (explicadores.some(e => e.username === username)) {
   const explicadorLogado = explicadores.find(e => e.username === username);
   sessionStorage.setItem("loggedTutor", JSON.stringify(explicadorLogado));
+ 
+  // Supondo que `professor` é o objeto do professor autenticado:
+
+
+// Seta a flag de primeiro login no localStorage apenas se ainda não existir
+const chavePrimeiroLogin = `primeiroLogin_${explicadorLogado.username}`;
+if (!localStorage.getItem(chavePrimeiroLogin)) {
+  localStorage.setItem(chavePrimeiroLogin, "true");
+}
+
+ 
+
+
+  
   window.location.href = "../../HTML/explicadores/homepageExplicadores.html";
   
 }

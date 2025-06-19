@@ -11,6 +11,12 @@ import { getExplicadorByUsername, initProfessores } from "../models/professorMod
 
 
 
+
+
+
+
+
+
 // Inicializar os dados
 initProfessores();
 
@@ -64,6 +70,44 @@ document.addEventListener('DOMContentLoaded', carregarCardsExplicadores);
 
 
 
+const buttonFiltro=document.getElementById('filtrar')
+buttonFiltro.addEventListener("click", function() {
+  window.location.href = "../../HTML/paginaFiltro.html"; //muda a pagina
+});
+
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+  if (!loggedInUser) return;
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const aluno = users.find(u => u.username === loggedInUser.username);
+  if (!aluno || !Array.isArray(aluno.professoresContactados)) return;
+
+  const explicadores = JSON.parse(localStorage.getItem("explicador")) || [];
+
+  const tbody = document.querySelector("#tabela-professores-contactados tbody");
+  tbody.innerHTML = ""; // Limpa a tabela
+
+  aluno.professoresContactados.forEach(profContato => {
+    const profCompleto = explicadores.find(e => e.username === profContato.username);
+
+    if (profCompleto) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td><img src="${profCompleto.foto.perfil|| '../../img/defaultimg.jpg'}" alt="Foto ${profCompleto.username}" width="50" height="50"></td>
+        <td>${profCompleto.username}</td>
+        <td>${(profCompleto.modalidades && profCompleto.modalidades[0]) || 'Modalidade não disponível'}</td>
+        <td>${profCompleto.numeroTelefone || 'Telefone não disponível'}</td>
+        <td>${profCompleto.email || 'Email não disponível'}</td>
+        <td>${profCompleto.preco !== undefined ? profCompleto.preco + ' €' : 'Preço não disponível'}</td>
+      `;
+      tbody.appendChild(tr);
+    }
+  });
+});
 
 
 

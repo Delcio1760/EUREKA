@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-Pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Management</title>
+  <link rel="stylesheet" href="/CSS/quizPage.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <nav class="menu">
+        <a class="menu-item" href="/HTML/admin/dashBoard.html">📊 Dashboard</a>
+        <div class="menu-item" data-section="alunos">🧑‍🎓 Alunos</div>
+        <div class="menu-item" data-section="explicadores">🧑‍🏫 Explicadores</div>
+        <div class="menu-item" data-section="administradores">🧑‍💼 Equipa</div>
+        <a href="#" class="menu-item"><i class="fas fa-file-alt"></i> Gerir Quizes</a>
+      </nav>
+    
+      <div class="logo">
+        <img src="/img/Icone_logo.png" alt="Logo" />
+      </div>
+    
+      <p class="slogan">Crie, gerencie e impulsione o conhecimento</p>
+    </aside>
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>QUIZ Management</h1>
+      <form class="quiz-form">
+        <label>Titulo do Quiz</label>
+        <input id="quizTitle" type="text" placeholder="Digite o título do quiz" required />
+        <label>Nome da Disciplina</label>
+        <input id="Disciplina-Nome" type="text" required />
+        <h3>Pergunta 1</h3>
+        <label>Pergunta</label>
+        <input id="Pergunta1" type="text" />
+
+        <label>Resposta 1</label>
+        <input id="Resposta1-1" type="text" required/>
+        <label>Resposta 2</label>
+        <input id="Resposta1-2" type="text" required/>
+        <label>Resposta 3</label>
+        <input id="Resposta1-3" type="text" required />
+        <label>Resposta 4</label>
+        <input id="Resposta1-4" type="text" required />
+
+        <label>Resposta Correta</label>
+        <input id="RespostaCerta1" type="text" required/>
+
+        <button type="submit">Criar quiz</button>
+        <button id="apagar-quizbtn">ApagarQuiz</button>
+      </form>
+    </main>
+  </div>
+  <script type="module" src="../../JS/views/gestaoquizzview.js"></script>
+</body>
+</html>

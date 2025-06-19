@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eureka - Plataforma de Tutores</title>
+    <link rel="stylesheet" href="../CSS/paginaFiltro.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <img class="logo" src="../img/Group 58.png" alt="Logo Eureka" class="logo">
+            <ul class="nav-menu">
+                <li><a href="/HTML/paginaAlunoPosLogin.html" class="nav-link">Home</a></li>
+                <li><a href="/HTML/sobre_nos.html" class="nav-link">Sobre nós</a></li>
+                <li><a href="/HTML/disciplinas.html" class="nav-link">Disciplinas</a></li>
+                <li><a href="/HTML/quiz.html" class="nav-link">Quiz</a></li>
+            </ul>
+            <div class="user-actions">
+                
+                <a href="#" class="user-link">Terminar sessão</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+            <h2 class="filters-title">Filtros</h2>
+
+            <div class="filter-group">
+                <label class="filter-label" for="disciplina-input">Disciplinas</label>
+                <div class="input-icon-wrapper">
+                    <input id="disciplina-input" type="text" class="filter-input" placeholder="Inserir Disciplina, ex: 'Matemática'">
+                    <span class="filter-icon">🔍</span>
+                </div>
+            </div>
+            
+            
+            <div class="filter-group">
+                <label class="filter-label">Localização</label>
+                <input id="localizacao-input" type="text" class="filter-input" placeholder="Inserir Localização, ex: 'Matosinhos'">
+                <button class="clear-btn">Limpar</button>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Por Ranking</label>
+                <select class="filter-select">
+                    <option>Todos</option>
+                    <option>0 estrelas</option>
+                    <option>5 estrelas</option>
+                    <option>4+ estrelas</option>
+                    <option>3+ estrelas</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Nível ensino</label>
+                <select class="filter-select">
+                    <option>Todos</option>
+                    <option>Básico</option>
+                    <option>Secundário</option>
+                    <option>Superior</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Modalidade da aula</label>
+                <select class="filter-select">
+                    <option>Qualquer</option>
+                    <option>Presencial</option>
+                    <option>Online</option>
+                    <option>Híbrida</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Preço por hora</label>
+                <div class="price-range">
+                    <input id="preco-input" type="number" class="price-input" placeholder="Por ex: 4€">
+                    <span style="color: #111111;">-</span>
+                    <button class="clear-btn">Limpar</button>            
+                </div>
+                
+            </div>
+        </aside>
+
+        <!-- Grelha de Explicadores -->
+        <main id="tutors-grid" class="tutors-grid">   
+        </main>
+    </div>
+    <script src="../JS/views/paginaFiltro.js"></script>
+</body>
+</html>

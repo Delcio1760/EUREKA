@@ -24,8 +24,9 @@
          
           <a href="../index.html">Home</a>
           <a href="HTML/sobre_nos.html">Sobre nós</a>
-          <a href="/HTML/disciplinas.html">Disciplinas</a>
           <a href="/HTML/quiz.html">Quizz</a>
+          <a href="/HTML/leaderboard.html">Top Jogadores</a>
+          
            
    </nav>
    <div class="login"><a href="/HTML/login.html">Iniciar sessão</a></div>
@@ -40,32 +41,21 @@
       "O seu próximo professor ideal, a um clique de distância."</h1>
      <p>Encontre perto de ti o professor ideal</p>
      <div class="hero-buttons">
-      <a href="HTML/quero_ensinar.html"><button type="button" class="btn-primary">Quero ensinar</button></a>
-      <a href="HTML/quero_aprender.html"><button type="button" class="btn-secondary">Quero Aprender!</button></a>
+      <a href="/HTML/quero_ensinar.html"><button type="button" class="btn-primary">Quero ensinar</button></a>
+      <a href="/HTML/quero_aprender.html"><button type="button" class="btn-secondary">Quero Aprender!</button></a>
      </div>
-     <form
-      class="search-form"
-      role="search"
-      aria-label="Search disciplines and class location"
-      method="get"
-      action="#"
-     >
-      <input
-       type="search"
-       name="disciplinas"
-       placeholder="Procure Aqui as disciplinas"
-       aria-label="Search disciplines"
-      />
-      <div class="divider"></div>
-      <input
-       type="search"
-       name="local"
-       placeholder="Local da aula"
-       aria-label="Search class location"
-      />
-      <button type="submit" aria-label="Search">
-       <i class="fas fa-search"></i>
-      </button>
+
+     
+
+    <label class="search-label" for="filtros" id="filtrar">
+  Clique aqui para filtrar professores
+  <button type="submit" aria-label="Search" id="buttonFiltrar">
+    <i class="fas fa-search"></i>
+  </button>
+</label>
+
+
+      
      </form>
     </div>
     <div class="hero-image">
@@ -82,14 +72,14 @@
    </section>
     <h1>Nossa Equipe de Professores</h1>
   <div class="grid-container">
-    <a href="perfilProfessor.html?username=felisberto-moreno" class="card-link">
+   
   <div class="card">
     <img src="https://storage.googleapis.com/a1aa/image/b6490db0-0e3e-41e2-104a-493a421ee845.jpg" alt="Teacher Felisberto Moreno standing in front of a chalkboard with math formulas, wearing a brown suit and gesturing with hands" />
     <p>Felisberto Moreno</p>
     <p class="subject">Matemática</p>
   </div>
 </a>
-<!-- 
+
     <div class="card">
       <img src="https://storage.googleapis.com/a1aa/image/975eb28e-52db-4037-217a-130c4bcf7837.jpg" alt="Teacher Adilson Mendes smiling in a classroom with a projector screen behind him, wearing a black jacket" />
       <p>Adilson Mendes</p>
@@ -129,11 +119,11 @@
       <img src="https://storage.googleapis.com/a1aa/image/3957ea2c-c2af-40ad-aa56-7e9f76025840.jpg" alt="Teacher Amanda Garcia smiling and holding notebooks in a classroom, wearing glasses and a white coat" />
       <p>Amanda Garcia</p>
       <p class="subject">Matemática</p> 
-    </div> -->
+    </div>
   </div>
 
 
-  <button class="butonprof">Veja Mais professores aqui</button>
+  <button class="butonprof" id="buttonVejaMais">Veja Mais professores aqui</button>
 
 
 
@@ -142,8 +132,8 @@
   <div class="container" role="region" aria-label="Convite para professores">
     <h2>Queres fazer parte da nossa equipa de professores?</h2>
     <p>Clique aqui e seja um dos nossos</p>
-    <button class="btn" aria-label="Dar Aulas Particulares">
-      Dar Aulas Particulares
+    <button class="btn" aria-label="Dar Aulas Particulares"><a href="/HTML/quero_ensinar.html">Dar Aulas Particulares</a>
+      
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
         <line x1="5" y1="12" x2="19" y2="12"></line>
         <polyline points="12 5 19 12 12 19"></polyline>
@@ -178,6 +168,17 @@
    <div class="footer-logo font-eureka"><a href="/index.html"><img src="../img/logotipo.png" alt=""></a></div>
   </footer>
 
-  
+  <div id="mensagemModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modalMensagemTexto">
+      Para aceder ao perfil dos professores, tens de fazer login.<br><br>
+      <a href="/HTML/login.html" id="loginLink">Faça login em Eureka!</a>
+    </p>
+  </div>
+</div>
+
+
+  <script src="/JS/views/indexView.js"></script>
  </body>
 </html>

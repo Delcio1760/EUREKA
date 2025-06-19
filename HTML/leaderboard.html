@@ -1,79 +1,91 @@
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Equipe de Professores</title>
-  <style>
-    /* Reset and base */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      background-color: #3a667a;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 3rem 1rem;
-      color: white;
-    }
-    h1 {
-      font-weight: 800;
-      font-size: 2.25rem;
-      margin-bottom: 3rem;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-      text-align: center;
-    }
-    .grid-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3.5rem 3.5rem;
-      max-width: 1200px;
-      width: 100%;
-    }
-    @media (min-width: 640px) {
-      .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (min-width: 768px) {
-      .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    .card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .card img {
-      width: 100%;
-      max-width: 300px;
-      aspect-ratio: 3 / 2;
-      border-radius: 1rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      object-fit: cover;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .card img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-    }
-    .card p {
-      margin-top: 1rem;
-      font-weight: 600;
-      font-size: 1.125rem;
-      letter-spacing: 0.05em;
-      text-align: center;
-      user-select: none;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="/CSS/leaderboard.css" />
 </head>
 <body>
- 
+  
+ </head>
+ <body>
+  </head>
+ <body>
+  <header>
+   <div class="logo"><img src="../img/logotipo.png" alt=""></div>
+   <nav>
+         
+          <a href="../index.html">Home</a>
+          <a href="/HTML/sobre_nos.html">Sobre nós</a>
+          <a href="/HTML/quiz.html">Quizz</a>
+          <a href="/HTML/leaderboard.html">Top Jogadores</a>
+
+          
+           
+   </nav>
+   
+
+   
+  </header>
+  <main>
+    <h2>Leaderboard</h2>
+
+    <!-- Cabeçalho da tabela -->
+    <div class="leaderboard-header">
+      <div>Rank</div>
+      <div>Jogador</div>
+      <div>Pontos</div>
+      <div>Badge</div>
+    </div>
+
+    <!-- 5 Linhas para alunos -->
+    <div class="leaderboard-row">
+      <div class="rank">1</div>
+      <div class="info">
+        <span class="nome"></span>
+        <span class="pontos"></span>
+      </div>
+      <div class="badge"></div>
+    </div>
+
+    <div class="leaderboard-row">
+      <div class="rank">2</div>
+      <div class="info">
+        <span class="nome"></span>
+        <span class="pontos"></span>
+      </div>
+      <div class="badge"></div>
+    </div>
+
+    <div class="leaderboard-row">
+      <div class="rank">3</div>
+      <div class="info">
+        <span class="nome"></span>
+        <span class="pontos"></span>
+      </div>
+      <div class="badge"></div>
+    </div>
+
+    <div class="leaderboard-row">
+      <div class="rank">4</div>
+      <div class="info">
+        <span class="nome"></span>
+        <span class="pontos"></span>
+      </div>
+      <div class="badge"></div>
+    </div>
+
+    <div class="leaderboard-row">
+      <div class="rank">5</div>
+      <div class="info">
+        <span class="nome"></span>
+        <span class="pontos"></span>
+      </div>
+      <div class="badge"></div>
+    </div>
+  </main>
+
+  <script src="../JS/views/leaderBoardView.js"></script>
 </body>
 </html>

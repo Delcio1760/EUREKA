@@ -4,6 +4,26 @@ export function init(){
    users = localStorage.users ? JSON.parse(localStorage.users) : [];
 }
 
+
+export function adicionarPontosAoAluno(pontosGanhos) {
+   const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+   if (!loggedInUser) return;
+ 
+   // Atualiza os pontos no utilizador da sessão
+   loggedInUser.pontos += pontosGanhos;
+   sessionStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+ 
+   // Atualiza os pontos no localStorage
+   const users = JSON.parse(localStorage.getItem("users")) || [];
+   const userIndex = users.findIndex(user => user.username === loggedInUser.username);
+   if (userIndex !== -1) {
+     users[userIndex].pontos = loggedInUser.pontos;
+     localStorage.setItem("users", JSON.stringify(users));
+   }
+ }
+
+
+ 
 // Adicionar aluno
 export function addAluno(username, password, telefone, idade, email, morada) {
    if(users.some((user) => user.username === username)){
@@ -13,6 +33,7 @@ export function addAluno(username, password, telefone, idade, email, morada) {
    localStorage.setItem("users", JSON.stringify(users));}
 
 }
+
 
 // Login do Utlizador
 export function login(username, password) {
@@ -90,7 +111,9 @@ export class Aluno {
    filtros = {};
    fotoPerfil = "";
    favoritos=""
-   constructor(username, password, telefone, dataNascimento, email, morada,filtros,favoritos, fotoPerfil) {
+   professoresContactados = []; 
+
+   constructor(username, password, telefone, dataNascimento, email, morada,filtros,favoritos, fotoPerfil,) {
        this.username = username;
        this.password = password;
        this.telefone = telefone;
@@ -105,10 +128,13 @@ export class Aluno {
            disponibilidade: [],
            precoMax: 0,
            localidade: "",  
+
            
        };
        this.favoritos = [];
        this.fotoPerfil = fotoPerfil || ""; // Foto de perfil do aluno
+      this.professoresContactados = [];  // tabela de contactos
+
    }
 }
 

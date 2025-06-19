@@ -1,74 +1,56 @@
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-PT">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eureka</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-  />
-
-  <link rel="stylesheet" href="../CSS/quiz.css">
-
+  <meta charset="UTF-8">
+  <title>Quizzes</title>
+  <link rel="stylesheet" href="/CSS/quiz.css">
 </head>
 <body>
   <header>
-    <div class="logo">
-      EURE<span>KA</span>
+    <div class="container">
+  
+      <!-- Logo + Navegação à esquerda -->
+      <div class="nav-left">
+        <div class="logo">
+          <img src="/img/Group 49.png" alt="logo do site">
+        </div>
+        <nav>
+          <a href="/index.html">Home</a>
+          <a href="/HTML/sobre_nos.html">Sobre nós</a>
+          <a href="/HTML/disciplinas.html">Disciplinas</a>
+          <a href="/HTML/quiz.html">Quizz</a>
+          <a href="/HTML/leaderboard.html">Leaderboard</a>
+        </nav>
+      </div>
+  
+  
+      
+  
     </div>
-    <nav>
-      <a href="/index.html">Home</a>
-      <a href="../HTML/sobre_nos.html">Sobre</a>
-      <a href="../HTML/disciplinas.html">Disciplinas</a>
-      <a href="../HTML/quiz.html">Quiz</a>
-    </nav>
   </header>
+  <h1>Prove os teus conhecimentos aqui</h1>
+  <div id="quizContainer" class="card-container"></div>
 
-  <main>
-    <h1>Desafia o teu<br />conhecimento.</h1>
-
-    <section class="grid-container" aria-label="Disciplinas">
-      <div class="card">
-        <div class="card-title">Matemática</div>
-        <i class="fas fa-calculator icon" aria-hidden="true"></i>
-      </div>
-      <div class="card">
-        <div class="card-title">História</div>
-        <i class="fas fa-chess-knight icon" aria-hidden="true"></i>
-      </div>
-      <div class="card">
-        <div class="card-title">Física</div>
-        <span class="icon physics" aria-hidden="true">∑</span>
-      </div>
-      <div class="card">
-        <div class="card-title">Química</div>
-        <i class="fas fa-flask icon" aria-hidden="true"></i>
-      </div>
-      <div class="card">
-        <div class="card-title">Biologia</div>
-        <span class="icon biology" aria-hidden="true">🧬</span>
-      </div>
-      <div class="card">
-        <div class="card-title">Filosofia</div>
-        <span class="icon philosophy" aria-hidden="true">🧠</span>
-      </div>
-      <div class="card">
-        <div class="card-title">Geografia</div>
-        <i class="fas fa-globe-americas icon" aria-hidden="true"></i>
-      </div>
-      <div class="card">
-        <div class="card-title">Psicologia</div>
-        <i class="fas fa-smile icon" aria-hidden="true"></i>
-      </div>
-      <div class="card">
-        <div class="card-title">Sociologia</div>
-        <span class="icon sociology" aria-hidden="true">🛋️</span>
-      </div>
-    </section>
-  </main>
+  <!-- Modal -->
+  <div id="quizModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2 id="modalTitulo"></h2>
+      <div id="modalPerguntas"></div>
+    </div>
+  </div>
+<!-- Modal de Resultado -->
+<div id="resultadoModal" class="modal hidden">
+  <div class="modal-content">
+    <span id="fecharResultadoBtn" class="close-button">&times;</span>
+    <h2>Resultado do Quiz</h2>
+    <p id="resultadoTexto"></p>
+  </div>
+</div>
+<!-- Script JS -->
+<script src="quizView.js" type="module"></script>
+</body>
+  <script type="module" src="../JS/views/quizView.js"></script>
+  <script type="module" src="../JS/init.js"></script>
 </body>
 </html>
