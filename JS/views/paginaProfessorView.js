@@ -523,8 +523,7 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("botao-avaliar").style.display = "none";
   document.getElementById("btn-contactar").style.display = "none";
   document.getElementById("botao-eliminar").style.display = "none";
-  document.getElementById("botao-editar").style.display = "none";
-
+  
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const explicadores = JSON.parse(localStorage.getItem("explicador")) || [];
 
@@ -538,7 +537,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (isProfessor) {
     document.getElementById("botao-eliminar").style.display = "inline-block";
-    document.getElementById("botao-editar").style.display = "inline-block";
+    
   }
 });
 
