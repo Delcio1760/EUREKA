@@ -515,6 +515,7 @@ mostrarModal("Sucesso! agendamento feito! Aguarde o feedback do Professor", "suc
 
 
 
+
 window.addEventListener("DOMContentLoaded", () => {
   const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
   if (!loggedInUser) return;
@@ -522,7 +523,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // Esconde todos os botões inicialmente
   document.getElementById("botao-avaliar").style.display = "none";
   document.getElementById("btn-contactar").style.display = "none";
-  document.getElementById("botao-eliminar").style.display = "none";
+  document.getElementById("botao-editar").style.display = "none";
   
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const explicadores = JSON.parse(localStorage.getItem("explicador")) || [];
@@ -536,7 +537,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   if (isProfessor) {
-    document.getElementById("botao-eliminar").style.display = "inline-block";
+    document.getElementById("botao-editar").style.display = "inline-block";
     
   }
 });
