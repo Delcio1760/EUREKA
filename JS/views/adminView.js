@@ -189,6 +189,53 @@ export function renderGraficoDisciplinas(){
 }
 
 
+// Função para obter disciplinas do localStorageAdd commentMore actions
+export function obterDisciplinas() {
+  const dados = localStorage.getItem('disciplinas');
+  return dados ? JSON.parse(dados) : [];
+}
+
+// Função para guardar a lista no localStorage
+export function guardarDisciplinas(disciplinas) {
+  localStorage.setItem('disciplinas', JSON.stringify(disciplinas));
+}
+
+// Função para adicionar uma nova disciplina
+export function adicionarDisciplina(nome, descricao, imagemBase64) {
+  const disciplinas = obterDisciplinas();
+  disciplinas.push({ nome, descricao, imagem: imagemBase64 });
+  guardarDisciplinas(disciplinas);
+}
+
+// Lidar com o envio do formulário
+const form = document.getElementById('disciplina-form');
+if(form){
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+  
+    const nome = document.getElementById('nomeDisciplina').value.trim();
+    const descricao = document.getElementById('descricaoDisciplina').value.trim();
+    const imagemInput = document.getElementById('imagemDisciplina');
+    const imagemFile = imagemInput.files[0];
+  
+    if (nome && descricao && imagemFile) {
+      const reader = new FileReader();
+  
+      reader.onload = function (event) {
+        const imagemBase64 = event.target.result;
+        adicionarDisciplina(nome, descricao, imagemBase64);
+        alert('Disciplina adicionada com sucesso!');
+        form.reset();
+      };
+  
+      reader.readAsDataURL(imagemFile); // Converte a imagem para base64
+    } else {
+      alert('Por favor, preencha todos os campos e escolha uma imagem.');
+    }
+  });
+  
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   renderCards(alunos, explicadores);
   renderTableAlunos(alunos);
@@ -201,9 +248,14 @@ window.addEventListener('DOMContentLoaded', () => {
       const sectionId = item.getAttribute("data-section");
       mostrarSeccao(sectionId);
     });
+  
+  document.querySelectorAll('.menu-item').forEach(item => {
+    const seccao = item.dataset.section;
+    if (seccao) {
+      item.addEventListener('click', () => { mostrarSeccao(seccao); });
+    }
   });
-
 });
-
+})
 
 

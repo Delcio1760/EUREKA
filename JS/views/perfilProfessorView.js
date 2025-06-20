@@ -197,6 +197,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+//logout
+// Pega userName da URL
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutBtn = document.getElementById("buttonLogout");
+  const modal = document.getElementById("modal-confirmacao");
+  const fecharModalBtn = modal.querySelector(".close-button");
+  const confirmarLogoutBtn = document.getElementById("confirmar-logout");
+  const cancelarLogoutBtn = document.getElementById("cancelar-logout");
+
+  // Mostrar o modal
+  logoutBtn.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
+
+  // Fechar modal (cancelar)
+  fecharModalBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  cancelarLogoutBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Confirmar logout
+  confirmarLogoutBtn.addEventListener("click", () => {
+    sessionStorage.removeItem("loggedInUser");
+    sessionStorage.removeItem("loggedTutor");
+    modal.style.display = "none";
+    window.location.href = "/index.html"; // Redireciona para a página inicial
+  });
+
+  // Clicar fora do modal para fechar
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

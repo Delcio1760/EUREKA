@@ -55,6 +55,12 @@ if(filtrar.length > 0){
             <p>Localização: ${explicador.morada}</p>
             <p>Preço: ${explicador.preco}€/hora</p>
             <p>Estrelas: ${explicador.estrelas}</p>`;
+
+            
+            // Adiciona o evento de clique para redirecionar ao perfil do explicadorAdd commentMore actions
+            card.addEventListener("click",() => {
+                window.location.href = `/HTML/profiles/perfilProfessor.html?username=${explicador.username}`;
+            })
         grelha.appendChild(card);
     });
 } else {

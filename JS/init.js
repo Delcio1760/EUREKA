@@ -69,4 +69,6 @@ document.querySelectorAll('.menu-item').forEach(item => {
   if (seccao) {
     item.addEventListener('click', () => { mostrarSeccao(seccao); });
   }
+  
 });
+

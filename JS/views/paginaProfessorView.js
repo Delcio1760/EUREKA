@@ -459,7 +459,7 @@ botaoContacto.addEventListener("click", () => {
 
   if (jaContactado) {
  
-  mostrarModal(" Você já entrou em contato com este professor.Os seus dados(numero de telemovel,nome,email...) foram enviados para ao caminho dele.Fique atento ao teu email e ao whatsapp", "sucess");
+  mostrarModal(" Você já entrou em contato com este professor.Os seus dados(numero de telemovel,nome,email...) foram enviados ao caminho dele.Fique atento ao teu email e ao whatsapp", "sucess");
   return;
   
     
@@ -585,4 +585,76 @@ inputFoto.addEventListener("change", (event) => {
 
 window.addEventListener("DOMContentLoaded", () => {
   preencherPerfil();
+});
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal-confirmacao");
+  const titulo = document.getElementById("modal-titulo");
+  const texto = document.getElementById("modal-texto");
+  const btnConfirmar = document.getElementById("modal-confirmar");
+  const btnCancelar = document.getElementById("modal-cancelar");
+  const btnFechar = document.querySelector(".close-button");
+
+  const botaoTerminarSessao = document.getElementById("btnMeuPerfil");
+  const botaoEliminar = document.getElementById("botao-eliminar");
+
+  let acaoAtual = ""; // "logout" ou "eliminar"
+
+  // Abrir modal para logout
+  botaoTerminarSessao.addEventListener("click", () => {
+    acaoAtual = "logout";
+    titulo.textContent = "Confirmar Logout";
+    texto.textContent = "Deseja sair da conta e voltar à página de login?";
+    modal.style.display = "block";
+  });
+
+  // Abrir modal para eliminar perfil
+  botaoEliminar.addEventListener("click", () => {
+    acaoAtual = "eliminar";
+    titulo.textContent = "Eliminar Perfil";
+    texto.textContent = "Tem a certeza que quer eliminar permanentemente este perfil?";
+    modal.style.display = "block";
+  });
+
+  // Confirmar ação
+  btnConfirmar.addEventListener("click", () => {
+    modal.style.display = "none";
+
+    if (acaoAtual === "logout") {
+      sessionStorage.removeItem("loggedTutor");
+      window.location.href = "/index.html";
+    }
+
+    if (acaoAtual === "eliminar") {
+      const loggedTutor = JSON.parse(sessionStorage.getItem("loggedTutor"));
+      const allTutors = JSON.parse(localStorage.getItem("explicadores")) || [];
+
+      const novosTutors = allTutors.filter(tutor => tutor.email !== loggedTutor.email);
+      localStorage.setItem("explicadores", JSON.stringify(novosTutors));
+      sessionStorage.removeItem("loggedTutor");
+
+      window.location.href = "/index.html";
+    }
+  });
+
+  // Cancelar ou fechar
+  btnCancelar.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  btnFechar.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Fechar modal ao clicar fora
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 });

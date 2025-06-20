@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Admin-Dasboard</title>
+ <link rel="stylesheet" href="/CSS/gerirDisciplinas.css"/>
+ 
+</head>
+<body>
+ <!-- Sidebar -->
+ <div class="sidebar">
+  <div class="menu">
+    <a class="menu-item" href="/HTML/admin/dashBoard.html">📊 Dashboard</a>
+    <a class="menu-item" href="/HTML/admin/dashBoard.html" >🧑‍🎓 Alunos</a>
+    <div class="menu-item" data-section="explicadores">🧑‍🏫 Explicadores</div>
+    <a class="menu-item" href="../admin/gerirDisciplinas.html"> 📚 Gerir Disciplinas</a>
+    <a class="menu-item" href="gerirquizes.html">📝 Gerir Quizes</a>
+    <div class="logo">
+      <img src="/img/Icone_logo.png" alt="Logo" class="icon-logo" />
+    </div>
+  </div>
+ </div>
+
+ <!-- Conteudo Principal -->
+ <div class="main">
+    <main class="main-content">
+      <h1>Gestão das disciplinas</h1>
+      <form id="disciplina-form">
+        <label for="nomeDisciplina">Nome da Disciplina:</label>
+        <input type="text" id="nomeDisciplina" required>
+
+        <label for="descricaoDisciplina">Descrição:</label>
+        <textarea id="descricaoDisciplina" rows="4" required></textarea>
+
+        <label for="imagemDisciplina">Link da Imagem:</label>
+        <input type="file" id="imagemDisciplina" accept="image/*" required>
+
+        <button type="submit">Adicionar</button>
+  </form>
+    </main>
+ </div>
+<script type="module" src="/EUREKA/JS/init.js" defer></script>
+<script src="/JS/views/disciplinasView.js"></script>
+</body>
+</html>

@@ -148,6 +148,53 @@ editButton.addEventListener("click", () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const btnDelete = document.querySelector('.btn-delete');
+  const modal = document.getElementById('modal-confirmacao');
+  const btnConfirm = document.getElementById('confirmar-eliminar');
+  const btnCancel = document.getElementById('cancelar-eliminar');
+  const btnClose = document.querySelector('.close-button');
+
+  btnDelete.addEventListener('click', () => {
+    modal.style.display = 'block';
+  });
+
+  btnCancel.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  btnClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target == modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  btnConfirm.addEventListener('click', () => {
+    const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+    if (!loggedInUser) {
+      alert("Nenhum utilizador autenticado.");
+      return;
+    }
+
+    const username = loggedInUser.username || loggedInUser.email;
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const updatedUsers = users.filter(user => user.username !== username && user.email !== username);
+
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+    sessionStorage.removeItem("loggedInUser");
+
+    alert("Perfil eliminado com sucesso.");
+    window.location.href = "../../index.html";
+  });
+});
+
+
+
 
 //mudar foto de perfil
 const inputFoto = document.getElementById("fotoInput");
